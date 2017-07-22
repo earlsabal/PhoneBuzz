@@ -9,14 +9,18 @@ import com.twilio.twiml.TwiMLException;
 
 public class TwilioController extends Controller {
 
-	public Result play() throws TwiMLException{
+	public Result play() {
 		Say message = new Say.Builder("Hello player, input a number then press pound to play PhoneBuzz")
 			.voice(Say.Voice.WOMAN).build();
 
 		Gather playRound = new Gather.Builder().action("/fizzbuzz").say(message).build();
 		VoiceResponse response = new VoiceResponse.Builder().gather(playRound).build();
 		
-		return ok(response.toXml()).as("text/xml");
+		try { return ok(response.toXml()).as("text/xml"); }
+		catch (TwiMLException exception) { 
+			exception.printStackTrace();
+			return ok("Something went wrong");
+		}	
 	}
 
 	public Result fizzBuzz() {
