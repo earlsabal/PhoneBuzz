@@ -1,5 +1,6 @@
 package controllers;
 import play.mvc.*;
+import java.util.Map;
 
 import com.twilio.twiml.Gather;
 import com.twilio.twiml.VoiceResponse;
@@ -19,7 +20,20 @@ public class TwilioController extends Controller {
 	}
 
 	public Result fizzBuzz() {
-		return ok();
+		final Map<String, String[]> values = request().body().asFormUrlEncoded();
+		String number = values.get("Digits")[0];
+		int num = Integer.parseInt(number);
+		String response = "";
+		String phrase = "";
+		for (int i = 1; i <= num; i++) {
+			phrase = "";
+			if (i % 3 == 0) { phrase += " Fizz"; }
+			if (i % 5 == 0) { phrase += " Buzz"; }
+			if (phrase.equals("")) { phrase = " " + String.valueOf(i); }
+			response += phrase;
+			if (i != num) { response += ","; }
+		}
+		return ok(response);
 	}
 
 }
