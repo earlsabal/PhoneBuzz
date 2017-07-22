@@ -33,7 +33,7 @@ public class TwilioController extends Controller {
 		catch (Exception e) { return ok("Sorry, please input a valid number"); }
 
 		//Checks for a reasonable number
-		if (num > 1000 || num < 0) { return ok("Please enter a number between 0 and 1000"); }
+		if (num > 1000 || num < 1) { return ok("Please enter a number between 1 and 1000"); }
 
 		String response = "";
 		String phrase = "";
