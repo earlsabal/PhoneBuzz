@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:C:/Users/Earl/Desktop/projects/PhoneBuzz/conf/routes
-// @DATE:Fri Jul 21 23:28:17 PDT 2017
+// @DATE:Sat Jul 22 14:29:54 PDT 2017
 
 
 package router {

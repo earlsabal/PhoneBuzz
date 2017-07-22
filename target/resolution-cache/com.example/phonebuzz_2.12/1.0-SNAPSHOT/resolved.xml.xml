@@ -4,7 +4,7 @@
 		module="phonebuzz_2.12"
 		revision="1.0-SNAPSHOT"
 		status="integration"
-		publication="20170721225154"
+		publication="20170722142954"
 	>
 		<description>
 		PhoneBuzz
@@ -51,6 +51,6 @@
 		<dependency org="com.typesafe.play" name="play-logback_2.12" rev="2.6.2" conf="compile->default(compile)"/>
 		<dependency org="com.typesafe.play" name="play-akka-http-server_2.12" rev="2.6.2" conf="compile->default(compile)"/>
 		<dependency org="com.typesafe.play" name="play-guice_2.12" rev="2.6.2" conf="compile->default(compile)"/>
-		<dependency org="com.twilio.sdk" name="twilio-java-sdk" rev="7.0.0-rc-10" conf="compile->default(compile)"/>
+		<dependency org="com.twilio.sdk" name="twilio" rev="7.11.0" conf="compile->default(compile)"/>
 	</dependencies>
 </ivy-module>

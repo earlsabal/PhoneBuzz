@@ -2,3 +2,5 @@ compile
 exit
 playGenerateSecret
 exit
+compile
+exit

@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:C:/Users/Earl/Desktop/projects/PhoneBuzz/conf/routes
-// @DATE:Fri Jul 21 23:28:17 PDT 2017
+// @DATE:Sat Jul 22 14:29:54 PDT 2017
 
 package router
 
@@ -19,7 +19,7 @@ class Routes(
   HomeController_1: controllers.HomeController,
   // @LINE:4
   TwilioController_0: controllers.TwilioController,
-  // @LINE:8
+  // @LINE:11
   Assets_2: controllers.Assets,
   val prefix: String
 ) extends GeneratedRouter {
@@ -30,7 +30,7 @@ class Routes(
     HomeController_1: controllers.HomeController,
     // @LINE:4
     TwilioController_0: controllers.TwilioController,
-    // @LINE:8
+    // @LINE:11
     Assets_2: controllers.Assets
   ) = this(errorHandler, HomeController_1, TwilioController_0, Assets_2, "/")
 
@@ -47,6 +47,7 @@ class Routes(
     ("""GET""", this.prefix, """controllers.HomeController.index"""),
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """play""", """controllers.TwilioController.play"""),
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """fizzbuzz""", """controllers.TwilioController.fizzBuzz"""),
+    ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """call""", """controllers.TwilioController.call"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """assets/""" + "$" + """file<.+>""", """controllers.Assets.versioned(path:String = "/public", file:Asset)"""),
     Nil
   ).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
@@ -110,10 +111,28 @@ class Routes(
   )
 
   // @LINE:8
-  private[this] lazy val controllers_Assets_versioned3_route = Route("GET",
+  private[this] lazy val controllers_TwilioController_call3_route = Route("POST",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("call")))
+  )
+  private[this] lazy val controllers_TwilioController_call3_invoker = createInvoker(
+    TwilioController_0.call,
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.TwilioController",
+      "call",
+      Nil,
+      "POST",
+      this.prefix + """call""",
+      """""",
+      Seq("""nocsrf""")
+    )
+  )
+
+  // @LINE:11
+  private[this] lazy val controllers_Assets_versioned4_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("assets/"), DynamicPart("file", """.+""",false)))
   )
-  private[this] lazy val controllers_Assets_versioned3_invoker = createInvoker(
+  private[this] lazy val controllers_Assets_versioned4_invoker = createInvoker(
     Assets_2.versioned(fakeValue[String], fakeValue[Asset]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -149,9 +168,15 @@ class Routes(
       }
   
     // @LINE:8
-    case controllers_Assets_versioned3_route(params) =>
+    case controllers_TwilioController_call3_route(params) =>
+      call { 
+        controllers_TwilioController_call3_invoker.call(TwilioController_0.call)
+      }
+  
+    // @LINE:11
+    case controllers_Assets_versioned4_route(params) =>
       call(Param[String]("path", Right("/public")), params.fromPath[Asset]("file", None)) { (path, file) =>
-        controllers_Assets_versioned3_invoker.call(Assets_2.versioned(path, file))
+        controllers_Assets_versioned4_invoker.call(Assets_2.versioned(path, file))
       }
   }
 }

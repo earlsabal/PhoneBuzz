@@ -7,24 +7,24 @@
 		revision="1.0-SNAPSHOT"
 		conf="compile"
 		confs="universal, universal-docs, universal-src, compile, runtime, test, provided, optional, windows, docker, linux, rpm, debian, compile-internal, runtime-internal, test-internal, plugin, sources, docs, pom, scala-tool"
-		date="20170721225154"/>
+		date="20170722142954"/>
 	<dependencies>
-		<module organisation="com.twilio.sdk" name="twilio-java-sdk">
-			<revision name="7.0.0-rc-10" status="release" pubdate="20170327152448" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://www.twilio.com" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="63">
+		<module organisation="com.twilio.sdk" name="twilio">
+			<revision name="7.11.0" status="release" pubdate="20170524120632" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://www.twilio.com" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="63">
 				<license name="MIT License" url="http://www.opensource.org/licenses/mit-license.php"/>
-				<metadata-artifact status="no" details="" size="4934" time="0" location="C:\Users\Earl\.ivy2\cache\com.twilio.sdk\twilio-java-sdk\ivy-7.0.0-rc-10.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/twilio/sdk/twilio-java-sdk/7.0.0-rc-10/twilio-java-sdk-7.0.0-rc-10.pom"/>
-				<caller organisation="com.example" name="phonebuzz_2.12" conf="compile" rev="7.0.0-rc-10" rev-constraint-default="7.0.0-rc-10" rev-constraint-dynamic="7.0.0-rc-10" callerrev="1.0-SNAPSHOT"/>
+				<metadata-artifact status="no" details="" size="4887" time="0" location="C:\Users\Earl\.ivy2\cache\com.twilio.sdk\twilio\ivy-7.11.0.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/twilio/sdk/twilio/7.11.0/twilio-7.11.0.pom"/>
+				<caller organisation="com.example" name="phonebuzz_2.12" conf="compile" rev="7.11.0" rev-constraint-default="7.11.0" rev-constraint-dynamic="7.11.0" callerrev="1.0-SNAPSHOT"/>
 				<artifacts>
-					<artifact name="twilio-java-sdk" type="jar" ext="jar" status="no" details="" size="1123133" time="0" location="C:\Users\Earl\.ivy2\cache\com.twilio.sdk\twilio-java-sdk\jars\twilio-java-sdk-7.0.0-rc-10.jar">
-						<origin-location is-local="false" location="https://repo1.maven.org/maven2/com/twilio/sdk/twilio-java-sdk/7.0.0-rc-10/twilio-java-sdk-7.0.0-rc-10.jar"/>
+					<artifact name="twilio" type="jar" ext="jar" status="no" details="" size="1571952" time="0" location="C:\Users\Earl\.ivy2\cache\com.twilio.sdk\twilio\jars\twilio-7.11.0.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/com/twilio/sdk/twilio/7.11.0/twilio-7.11.0.jar"/>
 					</artifact>
 				</artifacts>
 			</revision>
 		</module>
 		<module organisation="javax.xml.bind" name="jaxb-api">
-			<revision name="2.2" status="release" pubdate="20100107082231" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="69">
+			<revision name="2.2" status="release" pubdate="20100107082231" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="67">
 				<metadata-artifact status="no" details="" size="2665" time="0" location="C:\Users\Earl\.ivy2\cache\javax.xml.bind\jaxb-api\ivy-2.2.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/javax/xml/bind/jaxb-api/2.2/jaxb-api-2.2.pom"/>
-				<caller organisation="com.twilio.sdk" name="twilio-java-sdk" conf="default, compile, runtime, master" rev="2.2" rev-constraint-default="2.2" rev-constraint-dynamic="2.2" callerrev="7.0.0-rc-10"/>
+				<caller organisation="com.twilio.sdk" name="twilio" conf="default, compile, runtime, master" rev="2.2" rev-constraint-default="2.2" rev-constraint-dynamic="2.2" callerrev="7.11.0"/>
 				<artifacts>
 					<artifact name="jaxb-api" type="jar" ext="jar" status="no" details="" size="104172" time="0" location="C:\Users\Earl\.ivy2\cache\javax.xml.bind\jaxb-api\jars\jaxb-api-2.2.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/javax/xml/bind/jaxb-api/2.2/jaxb-api-2.2.jar"/>
@@ -33,7 +33,7 @@
 			</revision>
 		</module>
 		<module organisation="javax.activation" name="activation">
-			<revision name="1.1" status="release" pubdate="20060502164829" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://java.sun.com/products/javabeans/jaf/index.jsp" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="71">
+			<revision name="1.1" status="release" pubdate="20060502164829" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://java.sun.com/products/javabeans/jaf/index.jsp" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="69">
 				<license name="Common Development and Distribution License (CDDL) v1.0" url="https://glassfish.dev.java.net/public/CDDLv1.0.html"/>
 				<metadata-artifact status="no" details="" size="2874" time="0" location="C:\Users\Earl\.ivy2\cache\javax.activation\activation\ivy-1.1.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/javax/activation/activation/1.1/activation-1.1.pom"/>
 				<caller organisation="javax.xml.bind" name="jaxb-api" conf="compile, runtime" rev="1.1" rev-constraint-default="1.1" rev-constraint-dynamic="1.1" callerrev="2.2"/>
@@ -45,7 +45,7 @@
 			</revision>
 		</module>
 		<module organisation="javax.xml.stream" name="stax-api">
-			<revision name="1.0-2" status="release" pubdate="20081004105903" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="70">
+			<revision name="1.0-2" status="release" pubdate="20081004105903" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="68">
 				<license name="GNU General Public Library" url="http://www.gnu.org/licenses/gpl.txt"/>
 				<license name="COMMON DEVELOPMENT AND DISTRIBUTION LICENSE (CDDL) Version 1.0" url="http://www.sun.com/cddl/cddl.html"/>
 				<metadata-artifact status="no" details="" size="2684" time="0" location="C:\Users\Earl\.ivy2\cache\javax.xml.stream\stax-api\ivy-1.0-2.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/javax/xml/stream/stax-api/1.0-2/stax-api-1.0-2.pom"/>
@@ -58,10 +58,10 @@
 			</revision>
 		</module>
 		<module organisation="org.apache.httpcomponents" name="httpclient">
-			<revision name="4.5.2" status="release" pubdate="20160221080550" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://hc.apache.org/httpcomponents-client" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="66">
+			<revision name="4.5.2" status="release" pubdate="20160221080550" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://hc.apache.org/httpcomponents-client" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="64">
 				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
 				<metadata-artifact status="no" details="" size="9890" time="0" location="C:\Users\Earl\.ivy2\cache\org.apache.httpcomponents\httpclient\ivy-4.5.2.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/apache/httpcomponents/httpclient/4.5.2/httpclient-4.5.2.pom"/>
-				<caller organisation="com.twilio.sdk" name="twilio-java-sdk" conf="default, compile, runtime, master" rev="4.5.2" rev-constraint-default="4.5.2" rev-constraint-dynamic="4.5.2" callerrev="7.0.0-rc-10"/>
+				<caller organisation="com.twilio.sdk" name="twilio" conf="default, compile, runtime, master" rev="4.5.2" rev-constraint-default="4.5.2" rev-constraint-dynamic="4.5.2" callerrev="7.11.0"/>
 				<artifacts>
 					<artifact name="httpclient" type="jar" ext="jar" status="no" details="" size="736658" time="0" location="C:\Users\Earl\.ivy2\cache\org.apache.httpcomponents\httpclient\jars\httpclient-4.5.2.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/apache/httpcomponents/httpclient/4.5.2/httpclient-4.5.2.jar"/>
@@ -70,37 +70,14 @@
 			</revision>
 		</module>
 		<module organisation="org.apache.httpcomponents" name="httpcore">
-			<revision name="4.4.4" status="release" pubdate="20151026101814" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://hc.apache.org/httpcomponents-core-ga" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="67">
+			<revision name="4.4.4" status="release" pubdate="20151026101814" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://hc.apache.org/httpcomponents-core-ga" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="65">
 				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
 				<metadata-artifact status="no" details="" size="7774" time="0" location="C:\Users\Earl\.ivy2\cache\org.apache.httpcomponents\httpcore\ivy-4.4.4.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/apache/httpcomponents/httpcore/4.4.4/httpcore-4.4.4.pom"/>
+				<caller organisation="com.twilio.sdk" name="twilio" conf="default, compile, runtime, master" rev="4.4.4" rev-constraint-default="4.4.4" rev-constraint-dynamic="4.4.4" callerrev="7.11.0"/>
 				<caller organisation="org.apache.httpcomponents" name="httpclient" conf="compile, runtime" rev="4.4.4" rev-constraint-default="4.4.4" rev-constraint-dynamic="4.4.4" callerrev="4.5.2"/>
 				<artifacts>
 					<artifact name="httpcore" type="jar" ext="jar" status="no" details="" size="326724" time="0" location="C:\Users\Earl\.ivy2\cache\org.apache.httpcomponents\httpcore\jars\httpcore-4.4.4.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/apache/httpcomponents/httpcore/4.4.4/httpcore-4.4.4.jar"/>
-					</artifact>
-				</artifacts>
-			</revision>
-		</module>
-		<module organisation="com.ning" name="async-http-client">
-			<revision name="1.8.14" status="release" pubdate="20140923102610" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://github.com/AsyncHttpClient/async-http-client" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="64">
-				<license name="Apache License 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.html"/>
-				<metadata-artifact status="no" details="" size="7103" time="0" location="C:\Users\Earl\.ivy2\cache\com.ning\async-http-client\ivy-1.8.14.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/ning/async-http-client/1.8.14/async-http-client-1.8.14.pom"/>
-				<caller organisation="com.twilio.sdk" name="twilio-java-sdk" conf="default, compile, runtime, master" rev="1.8.14" rev-constraint-default="1.8.14" rev-constraint-dynamic="1.8.14" callerrev="7.0.0-rc-10"/>
-				<artifacts>
-					<artifact name="async-http-client" type="jar" ext="jar" status="no" details="" size="530768" time="0" location="C:\Users\Earl\.ivy2\cache\com.ning\async-http-client\jars\async-http-client-1.8.14.jar">
-						<origin-location is-local="false" location="https://repo1.maven.org/maven2/com/ning/async-http-client/1.8.14/async-http-client-1.8.14.jar"/>
-					</artifact>
-				</artifacts>
-			</revision>
-		</module>
-		<module organisation="io.netty" name="netty">
-			<revision name="3.9.2.Final" status="release" pubdate="20140611022254" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://netty.io/" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="65">
-				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0"/>
-				<metadata-artifact status="no" details="" size="7277" time="0" location="C:\Users\Earl\.ivy2\cache\io.netty\netty\ivy-3.9.2.Final.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/io/netty/netty/3.9.2.Final/netty-3.9.2.Final.pom"/>
-				<caller organisation="com.ning" name="async-http-client" conf="compile, runtime" rev="3.9.2.Final" rev-constraint-default="3.9.2.Final" rev-constraint-dynamic="3.9.2.Final" callerrev="1.8.14"/>
-				<artifacts>
-					<artifact name="netty" type="bundle" ext="jar" status="no" details="" size="1303237" time="0" location="C:\Users\Earl\.ivy2\cache\io.netty\netty\bundles\netty-3.9.2.Final.jar">
-						<origin-location is-local="false" location="https://repo1.maven.org/maven2/io/netty/netty/3.9.2.Final/netty-3.9.2.Final.jar"/>
 					</artifact>
 				</artifacts>
 			</revision>
@@ -214,7 +191,7 @@
 			</revision>
 		</module>
 		<module organisation="commons-logging" name="commons-logging">
-			<revision name="1.2" status="release" pubdate="20140705111228" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://commons.apache.org/proper/commons-logging/" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="68">
+			<revision name="1.2" status="release" pubdate="20140705111228" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://commons.apache.org/proper/commons-logging/" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="66">
 				<license name="The Apache Software License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
 				<metadata-artifact status="no" details="" size="11725" time="0" location="C:\Users\Earl\.ivy2\cache\commons-logging\commons-logging\ivy-1.2.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/commons-logging/commons-logging/1.2/commons-logging-1.2.pom"/>
 				<caller organisation="org.apache.httpcomponents" name="httpclient" conf="compile, runtime" rev="1.2" rev-constraint-default="1.2" rev-constraint-dynamic="1.2" callerrev="4.5.2"/>
@@ -465,7 +442,7 @@
 				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0"/>
 				<metadata-artifact status="no" details="" size="5675" time="0" location="C:\Users\Earl\.ivy2\cache\io.jsonwebtoken\jjwt\ivy-0.7.0.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/io/jsonwebtoken/jjwt/0.7.0/jjwt-0.7.0.pom"/>
 				<caller organisation="com.typesafe.play" name="play_2.12" conf="compile, runtime" rev="0.7.0" rev-constraint-default="0.7.0" rev-constraint-dynamic="0.7.0" callerrev="2.6.2"/>
-				<caller organisation="com.twilio.sdk" name="twilio-java-sdk" conf="default, compile, runtime, master" rev="0.4" rev-constraint-default="0.4" rev-constraint-dynamic="0.4" callerrev="7.0.0-rc-10"/>
+				<caller organisation="com.twilio.sdk" name="twilio" conf="default, compile, runtime, master" rev="0.4" rev-constraint-default="0.4" rev-constraint-dynamic="0.4" callerrev="7.11.0"/>
 				<artifacts>
 					<artifact name="jjwt" type="jar" ext="jar" status="no" details="" size="111351" time="0" location="C:\Users\Earl\.ivy2\cache\io.jsonwebtoken\jjwt\jars\jjwt-0.7.0.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/io/jsonwebtoken/jjwt/0.7.0/jjwt-0.7.0.jar"/>
@@ -474,7 +451,7 @@
 			</revision>
 			<revision name="0.4" evicted="latest-revision" evicted-reason="" downloaded="false" searched="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="-1">
 				<evicted-by rev="0.7.0"/>
-				<caller organisation="com.twilio.sdk" name="twilio-java-sdk" conf="default, compile, runtime, master" rev="0.4" rev-constraint-default="0.4" rev-constraint-dynamic="0.4" callerrev="7.0.0-rc-10"/>
+				<caller organisation="com.twilio.sdk" name="twilio" conf="default, compile, runtime, master" rev="0.4" rev-constraint-default="0.4" rev-constraint-dynamic="0.4" callerrev="7.11.0"/>
 				<artifacts>
 				</artifacts>
 			</revision>
@@ -485,8 +462,8 @@
 				<metadata-artifact status="no" details="" size="7307" time="0" location="C:\Users\Earl\.ivy2\cache\com.google.guava\guava\ivy-22.0.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/google/guava/guava/22.0/guava-22.0.pom"/>
 				<caller organisation="com.typesafe.play" name="play_2.12" conf="compile, runtime" rev="22.0" rev-constraint-default="22.0" rev-constraint-dynamic="22.0" callerrev="2.6.2"/>
 				<caller organisation="com.google.inject" name="guice" conf="compile, runtime" rev="19.0" rev-constraint-default="19.0" rev-constraint-dynamic="19.0" callerrev="4.1.0"/>
+				<caller organisation="com.twilio.sdk" name="twilio" conf="default, compile, runtime, master" rev="18.0" rev-constraint-default="18.0" rev-constraint-dynamic="18.0" callerrev="7.11.0"/>
 				<caller organisation="org.reflections" name="reflections" conf="compile, runtime" rev="20.0" rev-constraint-default="20.0" rev-constraint-dynamic="20.0" callerrev="0.9.11"/>
-				<caller organisation="com.twilio.sdk" name="twilio-java-sdk" conf="default, compile, runtime, master" rev="18.0" rev-constraint-default="18.0" rev-constraint-dynamic="18.0" callerrev="7.0.0-rc-10"/>
 				<artifacts>
 					<artifact name="guava" type="bundle" ext="jar" status="no" details="" size="2575022" time="0" location="C:\Users\Earl\.ivy2\cache\com.google.guava\guava\bundles\guava-22.0.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/com/google/guava/guava/22.0/guava-22.0.jar"/>
@@ -495,7 +472,7 @@
 			</revision>
 			<revision name="18.0" evicted="latest-revision" evicted-reason="" downloaded="false" searched="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="-1">
 				<evicted-by rev="22.0"/>
-				<caller organisation="com.twilio.sdk" name="twilio-java-sdk" conf="default, compile, runtime, master" rev="18.0" rev-constraint-default="18.0" rev-constraint-dynamic="18.0" callerrev="7.0.0-rc-10"/>
+				<caller organisation="com.twilio.sdk" name="twilio" conf="default, compile, runtime, master" rev="18.0" rev-constraint-default="18.0" rev-constraint-dynamic="18.0" callerrev="7.11.0"/>
 				<artifacts>
 				</artifacts>
 			</revision>
@@ -577,7 +554,7 @@
 				<license name="Apache 2" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
 				<metadata-artifact status="no" details="" size="6719" time="0" location="C:\Users\Earl\.ivy2\cache\joda-time\joda-time\ivy-2.9.9.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/joda-time/joda-time/2.9.9/joda-time-2.9.9.pom"/>
 				<caller organisation="com.typesafe.play" name="play-json_2.12" conf="compile, runtime" rev="2.9.9" rev-constraint-default="2.9.9" rev-constraint-dynamic="2.9.9" callerrev="2.6.2"/>
-				<caller organisation="com.twilio.sdk" name="twilio-java-sdk" conf="default, compile, runtime, master" rev="2.5" rev-constraint-default="2.5" rev-constraint-dynamic="2.5" callerrev="7.0.0-rc-10"/>
+				<caller organisation="com.twilio.sdk" name="twilio" conf="default, compile, runtime, master" rev="2.5" rev-constraint-default="2.5" rev-constraint-dynamic="2.5" callerrev="7.11.0"/>
 				<artifacts>
 					<artifact name="joda-time" type="jar" ext="jar" status="no" details="" size="634048" time="0" location="C:\Users\Earl\.ivy2\cache\joda-time\joda-time\jars\joda-time-2.9.9.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/joda-time/joda-time/2.9.9/joda-time-2.9.9.jar"/>
@@ -586,7 +563,7 @@
 			</revision>
 			<revision name="2.5" evicted="latest-revision" evicted-reason="" downloaded="false" searched="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="-1">
 				<evicted-by rev="2.9.9"/>
-				<caller organisation="com.twilio.sdk" name="twilio-java-sdk" conf="default, compile, runtime, master" rev="2.5" rev-constraint-default="2.5" rev-constraint-dynamic="2.5" callerrev="7.0.0-rc-10"/>
+				<caller organisation="com.twilio.sdk" name="twilio" conf="default, compile, runtime, master" rev="2.5" rev-constraint-default="2.5" rev-constraint-dynamic="2.5" callerrev="7.11.0"/>
 				<artifacts>
 				</artifacts>
 			</revision>
@@ -680,18 +657,18 @@
 				<caller organisation="io.jsonwebtoken" name="jjwt" conf="compile, runtime" rev="2.8.2" rev-constraint-default="2.8.2" rev-constraint-dynamic="2.8.2" callerrev="0.7.0"/>
 				<caller organisation="com.typesafe.play" name="play_2.12" conf="compile, runtime" rev="2.8.9" rev-constraint-default="2.8.9" rev-constraint-dynamic="2.8.9" callerrev="2.6.2"/>
 				<caller organisation="com.typesafe.play" name="play-json_2.12" conf="compile, runtime" rev="2.8.9" rev-constraint-default="2.8.9" rev-constraint-dynamic="2.8.9" callerrev="2.6.2"/>
+				<caller organisation="com.twilio.sdk" name="twilio" conf="default, compile, runtime, master" rev="2.8.7" rev-constraint-default="2.8.7" rev-constraint-dynamic="2.8.7" callerrev="7.11.0"/>
 				<caller organisation="com.fasterxml.jackson.datatype" name="jackson-datatype-jdk8" conf="compile, runtime" rev="2.8.9" rev-constraint-default="2.8.9" rev-constraint-dynamic="2.8.9" callerrev="2.8.9"/>
 				<caller organisation="com.fasterxml.jackson.datatype" name="jackson-datatype-jsr310" conf="compile, runtime" rev="2.8.9" rev-constraint-default="2.8.9" rev-constraint-dynamic="2.8.9" callerrev="2.8.9"/>
-				<caller organisation="com.twilio.sdk" name="twilio-java-sdk" conf="default, compile, runtime, master" rev="2.4.3" rev-constraint-default="2.4.3" rev-constraint-dynamic="2.4.3" callerrev="7.0.0-rc-10"/>
 				<artifacts>
 					<artifact name="jackson-databind" type="bundle" ext="jar" status="no" details="" size="1242477" time="0" location="C:\Users\Earl\.ivy2\cache\com.fasterxml.jackson.core\jackson-databind\bundles\jackson-databind-2.8.9.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/com/fasterxml/jackson/core/jackson-databind/2.8.9/jackson-databind-2.8.9.jar"/>
 					</artifact>
 				</artifacts>
 			</revision>
-			<revision name="2.4.3" evicted="latest-revision" evicted-reason="" downloaded="false" searched="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="-1">
+			<revision name="2.8.7" evicted="latest-revision" evicted-reason="" downloaded="false" searched="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="-1">
 				<evicted-by rev="2.8.9"/>
-				<caller organisation="com.twilio.sdk" name="twilio-java-sdk" conf="default, compile, runtime, master" rev="2.4.3" rev-constraint-default="2.4.3" rev-constraint-dynamic="2.4.3" callerrev="7.0.0-rc-10"/>
+				<caller organisation="com.twilio.sdk" name="twilio" conf="default, compile, runtime, master" rev="2.8.7" rev-constraint-default="2.8.7" rev-constraint-dynamic="2.8.7" callerrev="7.11.0"/>
 				<artifacts>
 				</artifacts>
 			</revision>
@@ -708,18 +685,18 @@
 				<metadata-artifact status="no" details="" size="7030" time="0" location="C:\Users\Earl\.ivy2\cache\com.fasterxml.jackson.core\jackson-annotations\ivy-2.8.9.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/fasterxml/jackson/core/jackson-annotations/2.8.9/jackson-annotations-2.8.9.pom"/>
 				<caller organisation="com.typesafe.play" name="play_2.12" conf="compile, runtime" rev="2.8.9" rev-constraint-default="2.8.9" rev-constraint-dynamic="2.8.9" callerrev="2.6.2"/>
 				<caller organisation="com.typesafe.play" name="play-json_2.12" conf="compile, runtime" rev="2.8.9" rev-constraint-default="2.8.9" rev-constraint-dynamic="2.8.9" callerrev="2.6.2"/>
+				<caller organisation="com.twilio.sdk" name="twilio" conf="default, compile, runtime, master" rev="2.8.7" rev-constraint-default="2.8.7" rev-constraint-dynamic="2.8.7" callerrev="7.11.0"/>
 				<caller organisation="com.fasterxml.jackson.datatype" name="jackson-datatype-jsr310" conf="compile, runtime" rev="2.8.0" rev-constraint-default="2.8.0" rev-constraint-dynamic="2.8.0" callerrev="2.8.9"/>
 				<caller organisation="com.fasterxml.jackson.core" name="jackson-databind" conf="compile, runtime" rev="2.8.0" rev-constraint-default="2.8.0" rev-constraint-dynamic="2.8.0" callerrev="2.8.9"/>
-				<caller organisation="com.twilio.sdk" name="twilio-java-sdk" conf="default, compile, runtime, master" rev="2.4.3" rev-constraint-default="2.4.3" rev-constraint-dynamic="2.4.3" callerrev="7.0.0-rc-10"/>
 				<artifacts>
 					<artifact name="jackson-annotations" type="bundle" ext="jar" status="no" details="" size="55784" time="0" location="C:\Users\Earl\.ivy2\cache\com.fasterxml.jackson.core\jackson-annotations\bundles\jackson-annotations-2.8.9.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/com/fasterxml/jackson/core/jackson-annotations/2.8.9/jackson-annotations-2.8.9.jar"/>
 					</artifact>
 				</artifacts>
 			</revision>
-			<revision name="2.4.3" evicted="latest-revision" evicted-reason="" downloaded="false" searched="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="-1">
+			<revision name="2.8.7" evicted="latest-revision" evicted-reason="" downloaded="false" searched="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="-1">
 				<evicted-by rev="2.8.9"/>
-				<caller organisation="com.twilio.sdk" name="twilio-java-sdk" conf="default, compile, runtime, master" rev="2.4.3" rev-constraint-default="2.4.3" rev-constraint-dynamic="2.4.3" callerrev="7.0.0-rc-10"/>
+				<caller organisation="com.twilio.sdk" name="twilio" conf="default, compile, runtime, master" rev="2.8.7" rev-constraint-default="2.8.7" rev-constraint-dynamic="2.8.7" callerrev="7.11.0"/>
 				<artifacts>
 				</artifacts>
 			</revision>
@@ -737,19 +714,19 @@
 				<metadata-artifact status="no" details="" size="7486" time="0" location="C:\Users\Earl\.ivy2\cache\com.fasterxml.jackson.core\jackson-core\ivy-2.8.9.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/fasterxml/jackson/core/jackson-core/2.8.9/jackson-core-2.8.9.pom"/>
 				<caller organisation="com.typesafe.play" name="play_2.12" conf="compile, runtime" rev="2.8.9" rev-constraint-default="2.8.9" rev-constraint-dynamic="2.8.9" callerrev="2.6.2"/>
 				<caller organisation="com.typesafe.play" name="play-json_2.12" conf="compile, runtime" rev="2.8.9" rev-constraint-default="2.8.9" rev-constraint-dynamic="2.8.9" callerrev="2.6.2"/>
+				<caller organisation="com.twilio.sdk" name="twilio" conf="default, compile, runtime, master" rev="2.8.7" rev-constraint-default="2.8.7" rev-constraint-dynamic="2.8.7" callerrev="7.11.0"/>
 				<caller organisation="com.fasterxml.jackson.datatype" name="jackson-datatype-jdk8" conf="compile, runtime" rev="2.8.9" rev-constraint-default="2.8.9" rev-constraint-dynamic="2.8.9" callerrev="2.8.9"/>
 				<caller organisation="com.fasterxml.jackson.datatype" name="jackson-datatype-jsr310" conf="compile, runtime" rev="2.8.9" rev-constraint-default="2.8.9" rev-constraint-dynamic="2.8.9" callerrev="2.8.9"/>
 				<caller organisation="com.fasterxml.jackson.core" name="jackson-databind" conf="compile, runtime" rev="2.8.9" rev-constraint-default="2.8.9" rev-constraint-dynamic="2.8.9" callerrev="2.8.9"/>
-				<caller organisation="com.twilio.sdk" name="twilio-java-sdk" conf="default, compile, runtime, master" rev="2.4.3" rev-constraint-default="2.4.3" rev-constraint-dynamic="2.4.3" callerrev="7.0.0-rc-10"/>
 				<artifacts>
 					<artifact name="jackson-core" type="bundle" ext="jar" status="no" details="" size="282633" time="0" location="C:\Users\Earl\.ivy2\cache\com.fasterxml.jackson.core\jackson-core\bundles\jackson-core-2.8.9.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/com/fasterxml/jackson/core/jackson-core/2.8.9/jackson-core-2.8.9.jar"/>
 					</artifact>
 				</artifacts>
 			</revision>
-			<revision name="2.4.3" evicted="latest-revision" evicted-reason="" downloaded="false" searched="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="-1">
+			<revision name="2.8.7" evicted="latest-revision" evicted-reason="" downloaded="false" searched="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="-1">
 				<evicted-by rev="2.8.9"/>
-				<caller organisation="com.twilio.sdk" name="twilio-java-sdk" conf="default, compile, runtime, master" rev="2.4.3" rev-constraint-default="2.4.3" rev-constraint-dynamic="2.4.3" callerrev="7.0.0-rc-10"/>
+				<caller organisation="com.twilio.sdk" name="twilio" conf="default, compile, runtime, master" rev="2.8.7" rev-constraint-default="2.8.7" rev-constraint-dynamic="2.8.7" callerrev="7.11.0"/>
 				<artifacts>
 				</artifacts>
 			</revision>
@@ -950,7 +927,6 @@
 				<caller organisation="org.slf4j" name="jcl-over-slf4j" conf="compile, runtime" rev="1.7.25" rev-constraint-default="1.7.25" rev-constraint-dynamic="1.7.25" callerrev="1.7.25"/>
 				<caller organisation="com.typesafe.play" name="play_2.12" conf="compile, runtime" rev="1.7.25" rev-constraint-default="1.7.25" rev-constraint-dynamic="1.7.25" callerrev="2.6.2"/>
 				<caller organisation="org.slf4j" name="jul-to-slf4j" conf="compile, runtime" rev="1.7.25" rev-constraint-default="1.7.25" rev-constraint-dynamic="1.7.25" callerrev="1.7.25"/>
-				<caller organisation="com.ning" name="async-http-client" conf="compile, runtime" rev="1.7.5" rev-constraint-default="1.7.5" rev-constraint-dynamic="1.7.5" callerrev="1.8.14"/>
 				<caller organisation="com.typesafe.play" name="play-netty-utils" conf="compile, runtime" rev="1.7.25" rev-constraint-default="1.7.25" rev-constraint-dynamic="1.7.25" callerrev="2.6.2"/>
 				<caller organisation="com.typesafe.akka" name="akka-slf4j_2.12" conf="compile, runtime" rev="1.7.23" rev-constraint-default="1.7.23" rev-constraint-dynamic="1.7.23" callerrev="2.5.3"/>
 				<caller organisation="ch.qos.logback" name="logback-classic" conf="compile, runtime" rev="1.7.25" rev-constraint-default="1.7.25" rev-constraint-dynamic="1.7.25" callerrev="1.2.3"/>
@@ -958,12 +934,6 @@
 					<artifact name="slf4j-api" type="jar" ext="jar" status="no" details="" size="41203" time="0" location="C:\Users\Earl\.ivy2\cache\org.slf4j\slf4j-api\jars\slf4j-api-1.7.25.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar"/>
 					</artifact>
-				</artifacts>
-			</revision>
-			<revision name="1.7.5" evicted="latest-revision" evicted-reason="" downloaded="false" searched="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="-1">
-				<evicted-by rev="1.7.25"/>
-				<caller organisation="com.ning" name="async-http-client" conf="compile, runtime" rev="1.7.5" rev-constraint-default="1.7.5" rev-constraint-dynamic="1.7.5" callerrev="1.8.14"/>
-				<artifacts>
 				</artifacts>
 			</revision>
 			<revision name="1.7.23" evicted="latest-revision" evicted-reason="" downloaded="false" searched="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="-1">

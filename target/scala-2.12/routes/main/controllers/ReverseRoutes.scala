@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:C:/Users/Earl/Desktop/projects/PhoneBuzz/conf/routes
-// @DATE:Fri Jul 21 23:28:17 PDT 2017
+// @DATE:Sat Jul 22 14:29:54 PDT 2017
 
 import play.api.mvc.Call
 
@@ -27,14 +27,14 @@ package controllers {
   
   }
 
-  // @LINE:8
+  // @LINE:11
   class ReverseAssets(_prefix: => String) {
     def _defaultPrefix: String = {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
   
-    // @LINE:8
+    // @LINE:11
     def versioned(file:Asset): Call = {
       implicit val _rrc = new play.core.routing.ReverseRouteContext(Map(("path", "/public")))
       Call("GET", _prefix + { _defaultPrefix } + "assets/" + implicitly[play.api.mvc.PathBindable[Asset]].unbind("file", file))
@@ -59,6 +59,12 @@ package controllers {
     def fizzBuzz(): Call = {
       
       Call("POST", _prefix + { _defaultPrefix } + "fizzbuzz")
+    }
+  
+    // @LINE:8
+    def call(): Call = {
+      
+      Call("POST", _prefix + { _defaultPrefix } + "call")
     }
   
   }
