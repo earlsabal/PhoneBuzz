@@ -14,9 +14,11 @@ public class TwilioController extends Controller {
 			.voice(Say.Voice.WOMAN).build();
 
 		Gather playRound = new Gather.Builder().action("/fizzbuzz").say(message).build();
-		VoiceResponse response = new VoiceResponse.Builder().gather(playRound).build();
 		
-		try { return ok(response.toXml()).as("text/xml"); }
+		try { 
+			VoiceResponse response = new VoiceResponse.Builder().gather(playRound).build();
+			return ok(response.toXml()).as("text/xml");
+		}
 		catch (TwiMLException exception) { 
 			exception.printStackTrace();
 			return ok("Something went wrong");
