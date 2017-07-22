@@ -22,7 +22,15 @@ public class TwilioController extends Controller {
 	public Result fizzBuzz() {
 		final Map<String, String[]> values = request().body().asFormUrlEncoded();
 		String number = values.get("Digits")[0];
-		int num = Integer.parseInt(number);
+		int num = 0;
+
+		//Checks a valid number
+		try { num = Integer.parseInt(number); }
+		catch (Exception e) { return ok("Sorry, please input a valid number"); }
+
+		//Checks for a reasonable number
+		if (num > 1000 || num < 0) { return ok("Please enter a number between 0 and 1000"); }
+
 		String response = "";
 		String phrase = "";
 		for (int i = 1; i <= num; i++) {
