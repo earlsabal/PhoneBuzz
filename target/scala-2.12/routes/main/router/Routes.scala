@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:C:/Users/Earl/Desktop/projects/PhoneBuzz/conf/routes
-// @DATE:Fri Jul 21 22:51:54 PDT 2017
+// @DATE:Fri Jul 21 23:28:17 PDT 2017
 
 package router
 
@@ -15,24 +15,28 @@ import _root_.play.libs.F
 
 class Routes(
   override val errorHandler: play.api.http.HttpErrorHandler, 
-  // @LINE:6
-  HomeController_0: controllers.HomeController,
-  // @LINE:9
-  Assets_1: controllers.Assets,
+  // @LINE:3
+  HomeController_1: controllers.HomeController,
+  // @LINE:4
+  TwilioController_0: controllers.TwilioController,
+  // @LINE:8
+  Assets_2: controllers.Assets,
   val prefix: String
 ) extends GeneratedRouter {
 
    @javax.inject.Inject()
    def this(errorHandler: play.api.http.HttpErrorHandler,
-    // @LINE:6
-    HomeController_0: controllers.HomeController,
-    // @LINE:9
-    Assets_1: controllers.Assets
-  ) = this(errorHandler, HomeController_0, Assets_1, "/")
+    // @LINE:3
+    HomeController_1: controllers.HomeController,
+    // @LINE:4
+    TwilioController_0: controllers.TwilioController,
+    // @LINE:8
+    Assets_2: controllers.Assets
+  ) = this(errorHandler, HomeController_1, TwilioController_0, Assets_2, "/")
 
   def withPrefix(prefix: String): Routes = {
     router.RoutesPrefix.setPrefix(prefix)
-    new Routes(errorHandler, HomeController_0, Assets_1, prefix)
+    new Routes(errorHandler, HomeController_1, TwilioController_0, Assets_2, prefix)
   }
 
   private[this] val defaultPrefix: String = {
@@ -41,6 +45,8 @@ class Routes(
 
   def documentation = List(
     ("""GET""", this.prefix, """controllers.HomeController.index"""),
+    ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """play""", """controllers.TwilioController.play"""),
+    ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """fizzbuzz""", """controllers.TwilioController.fizzBuzz"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """assets/""" + "$" + """file<.+>""", """controllers.Assets.versioned(path:String = "/public", file:Asset)"""),
     Nil
   ).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
@@ -49,12 +55,12 @@ class Routes(
   }}
 
 
-  // @LINE:6
+  // @LINE:3
   private[this] lazy val controllers_HomeController_index0_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix)))
   )
   private[this] lazy val controllers_HomeController_index0_invoker = createInvoker(
-    HomeController_0.index,
+    HomeController_1.index,
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.HomeController",
@@ -62,17 +68,53 @@ class Routes(
       Nil,
       "GET",
       this.prefix + """""",
-      """ An example controller showing a sample home page""",
+      """""",
       Seq()
     )
   )
 
-  // @LINE:9
-  private[this] lazy val controllers_Assets_versioned1_route = Route("GET",
+  // @LINE:4
+  private[this] lazy val controllers_TwilioController_play1_route = Route("POST",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("play")))
+  )
+  private[this] lazy val controllers_TwilioController_play1_invoker = createInvoker(
+    TwilioController_0.play,
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.TwilioController",
+      "play",
+      Nil,
+      "POST",
+      this.prefix + """play""",
+      """""",
+      Seq()
+    )
+  )
+
+  // @LINE:5
+  private[this] lazy val controllers_TwilioController_fizzBuzz2_route = Route("POST",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("fizzbuzz")))
+  )
+  private[this] lazy val controllers_TwilioController_fizzBuzz2_invoker = createInvoker(
+    TwilioController_0.fizzBuzz,
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.TwilioController",
+      "fizzBuzz",
+      Nil,
+      "POST",
+      this.prefix + """fizzbuzz""",
+      """""",
+      Seq()
+    )
+  )
+
+  // @LINE:8
+  private[this] lazy val controllers_Assets_versioned3_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("assets/"), DynamicPart("file", """.+""",false)))
   )
-  private[this] lazy val controllers_Assets_versioned1_invoker = createInvoker(
-    Assets_1.versioned(fakeValue[String], fakeValue[Asset]),
+  private[this] lazy val controllers_Assets_versioned3_invoker = createInvoker(
+    Assets_2.versioned(fakeValue[String], fakeValue[Asset]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.Assets",
@@ -88,16 +130,28 @@ class Routes(
 
   def routes: PartialFunction[RequestHeader, Handler] = {
   
-    // @LINE:6
+    // @LINE:3
     case controllers_HomeController_index0_route(params) =>
       call { 
-        controllers_HomeController_index0_invoker.call(HomeController_0.index)
+        controllers_HomeController_index0_invoker.call(HomeController_1.index)
       }
   
-    // @LINE:9
-    case controllers_Assets_versioned1_route(params) =>
+    // @LINE:4
+    case controllers_TwilioController_play1_route(params) =>
+      call { 
+        controllers_TwilioController_play1_invoker.call(TwilioController_0.play)
+      }
+  
+    // @LINE:5
+    case controllers_TwilioController_fizzBuzz2_route(params) =>
+      call { 
+        controllers_TwilioController_fizzBuzz2_invoker.call(TwilioController_0.fizzBuzz)
+      }
+  
+    // @LINE:8
+    case controllers_Assets_versioned3_route(params) =>
       call(Param[String]("path", Right("/public")), params.fromPath[Asset]("file", None)) { (path, file) =>
-        controllers_Assets_versioned1_invoker.call(Assets_1.versioned(path, file))
+        controllers_Assets_versioned3_invoker.call(Assets_2.versioned(path, file))
       }
   }
 }
