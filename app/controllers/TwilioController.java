@@ -50,4 +50,16 @@ public class TwilioController extends Controller {
 		return ok(response);
 	}
 
+	public Result call() {
+		TwilioRestClient client = new TwilioRestClient.Builder(ACCOUNT_SID, AUTH_TOKEN).build();
+
+    PhoneNumber to = new PhoneNumber(TO_NUMBER); // Replace with your phone number
+    PhoneNumber from = new PhoneNumber(FROM_NUMBER); // Replace with a Twilio number
+    URI uri = URI.create("https://earl-phone-buzz.herokuapp.com/play");
+
+    Call call = Call.creator(to, from, uri).create(client);
+    return ok("Success!");
+
+	}
+
 }
