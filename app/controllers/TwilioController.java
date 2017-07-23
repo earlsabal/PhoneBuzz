@@ -3,9 +3,8 @@ import play.mvc.*;
 import java.util.Map;
 import play.Configuration;
 import javax.inject.Inject;
-
+import java.lang.Exception;
 import java.net.URI;
-import java.net.URISyntaxException;
 
 import com.twilio.http.TwilioRestClient;
 import com.twilio.rest.api.v2010.account.Call;
@@ -75,13 +74,27 @@ public class TwilioController extends Controller {
 		TwilioRestClient client = new TwilioRestClient.Builder(ACCOUNT_SID, AUTH_TOKEN).build();
 		String toNumber = request().body().asFormUrlEncoded().get("phone")[0];
 
+		// Checks if input is only 10-digits
+		if (toNumber.length != 10) { return ok("Not a 10-digit number") }
+
+		// Checks if input is only numbers
+		try {
+			int number = Integer.parseInt(toNumber);
+		} catch {
+			return ok("Invalid Input")
+		}
+
     PhoneNumber to = new PhoneNumber(toNumber);
     PhoneNumber from = new PhoneNumber(FROM_NUMBER);
     URI uri = URI.create(APP_URL);
 
-    Call call = Call.creator(to, from, uri).create(client);
-    return ok("Success!");
-
+    try {
+	  	Call call = Call.creator(to, from, uri).create(client);
+    } catch (Exception exception) {
+    	exception.printStackTrace();
+    	return ok("Invalid URI or Invalid caller ID, add phone number in your Twilio Verified Caller IDs");
+    }
+	  return ok("Success!");
 	}
 
 }
