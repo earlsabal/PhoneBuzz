@@ -77,13 +77,7 @@ public class TwilioController extends Controller {
 		TwilioRestClient client = new TwilioRestClient.Builder(ACCOUNT_SID, AUTH_TOKEN).build();
 		String toNumber = request().body().asFormUrlEncoded().get("phone")[0];
 		String seconds = request().body().asFormUrlEncoded().get("seconds")[0];
-		int secondsDelayed = Integer.parseInt(seconds);
-
-    try {
-    	TimeUnit.SECONDS.sleep(secondsDelayed);
-    } catch (InterruptedException e) {
-    	return ok("Phone call delay got interrupted");
-    }
+		int secondsDelayed;
 
 		// Checks if input is only 10-digits
 		if (toNumber.length() != 10) { return ok("Not a 10-digit number"); }
@@ -91,9 +85,23 @@ public class TwilioController extends Controller {
 		// Checks if input is only numbers
 		try {
 			int number = Integer.parseInt(toNumber);
-		} catch (Exception exception) {
-			return ok("Invalid Input");
+		} catch (Exception numberException) {
+			return ok("Invalid phone number input");
 		}
+
+		// Checks if the delayed seconds is a valid input
+		try {
+			secondsDelayed = Integer.parseInt(seconds);
+		} catch (Exception secondsException) {
+			return ok("Invalid seconds input");
+		}
+
+		// Checks if phone delay gets interrupted
+    try {
+    	TimeUnit.SECONDS.sleep(secondsDelayed);
+    } catch (InterruptedException e) {
+    	return ok("Phone call delay got interrupted");
+    }
 
     PhoneNumber to = new PhoneNumber(toNumber);
     PhoneNumber from = new PhoneNumber(FROM_NUMBER);
@@ -101,8 +109,8 @@ public class TwilioController extends Controller {
 
     try {
 	  	Call call = Call.creator(to, from, uri).create(client);
-    } catch (Exception exception) {
-    	exception.printStackTrace();
+    } catch (Exception callException) {
+    	callException.printStackTrace();
     	return ok("Invalid URI or Invalid caller ID, add phone number in your Twilio Verified Caller IDs");
     }
 	  return ok("Success!");
