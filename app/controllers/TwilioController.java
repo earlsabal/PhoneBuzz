@@ -69,9 +69,10 @@ public class TwilioController extends Controller {
 
 	public Result call() {
 		TwilioRestClient client = new TwilioRestClient.Builder(ACCOUNT_SID, AUTH_TOKEN).build();
+		String toNumber = request().body().asFormUrlEncoded().get("phone")[0];
 
-    PhoneNumber to = new PhoneNumber(TO_NUMBER); // Replace with your phone number
-    PhoneNumber from = new PhoneNumber(FROM_NUMBER); // Replace with a Twilio number
+    PhoneNumber to = new PhoneNumber(toNumber);
+    PhoneNumber from = new PhoneNumber(FROM_NUMBER);
     URI uri = URI.create("https://earl-phone-buzz.herokuapp.com/play");
 
     Call call = Call.creator(to, from, uri).create(client);
