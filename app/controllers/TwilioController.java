@@ -6,6 +6,9 @@ import javax.inject.Inject;
 import java.lang.Exception;
 import java.net.URI;
 
+import java.util.concurrent.TimeUnit;
+import java.lang.InterruptedException;
+
 import com.twilio.http.TwilioRestClient;
 import com.twilio.rest.api.v2010.account.Call;
 import com.twilio.type.PhoneNumber;
@@ -73,6 +76,14 @@ public class TwilioController extends Controller {
 	public Result call() {
 		TwilioRestClient client = new TwilioRestClient.Builder(ACCOUNT_SID, AUTH_TOKEN).build();
 		String toNumber = request().body().asFormUrlEncoded().get("phone")[0];
+		String seconds = request().body().asFormUrlEncoded().get("seconds")[0];
+		int secondsDelayed = Integer.parseInt(seconds);
+
+    try {
+    	TimeUnit.SECONDS.sleep(secondsDelayed);
+    } catch (InterruptedException e) {
+    	return ok("Phone call delay got interrupted");
+    }
 
 		// Checks if input is only 10-digits
 		if (toNumber.length() != 10) { return ok("Not a 10-digit number"); }
