@@ -84,7 +84,7 @@ public class TwilioController extends Controller {
 
 		// Checks if input is only numbers
 		try {
-			long number = Integer.parseInt(toNumber);
+			long number = Long.parseLong(toNumber);
 		} catch (Exception numberException) {
 			return ok("Invalid phone number input");
 		}
