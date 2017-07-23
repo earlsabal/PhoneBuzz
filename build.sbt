@@ -15,3 +15,7 @@ libraryDependencies += "org.postgresql" % "postgresql" % "9.4-1206-jdbc42"
 
 // https://mvnrepository.com/artifact/com.twilio.sdk/twilio-java-sdk
 libraryDependencies += "com.twilio.sdk" % "twilio" % "7.11.0"
+
+lazy val myProject = (project in file("."))
+  .enablePlugins(PlayJava, PlayEbean)
+  
