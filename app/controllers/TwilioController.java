@@ -75,13 +75,13 @@ public class TwilioController extends Controller {
 		String toNumber = request().body().asFormUrlEncoded().get("phone")[0];
 
 		// Checks if input is only 10-digits
-		if (toNumber.length != 10) { return ok("Not a 10-digit number") }
+		if (toNumber.length() != 10) { return ok("Not a 10-digit number"); }
 
 		// Checks if input is only numbers
 		try {
 			int number = Integer.parseInt(toNumber);
-		} catch {
-			return ok("Invalid Input")
+		} catch (Exception exception) {
+			return ok("Invalid Input");
 		}
 
     PhoneNumber to = new PhoneNumber(toNumber);
