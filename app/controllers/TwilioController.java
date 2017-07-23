@@ -1,6 +1,8 @@
 package controllers;
 import play.mvc.*;
 import java.util.Map;
+import play.Configuration;
+import javax.inject.Inject;
 
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -18,7 +20,7 @@ public class TwilioController extends Controller {
 	private final String ACCOUNT_SID;
 	private final String AUTH_TOKEN;
 	private final String FROM_NUMBER;	
-	private final String URL;	
+	private final String APP_URL;	
 
 	@Inject
 	public TwilioController(Configuration configuration) {

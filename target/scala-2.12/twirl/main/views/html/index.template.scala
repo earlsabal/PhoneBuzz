@@ -34,7 +34,12 @@ Seq[Any](format.raw/*1.4*/("""
 
 """),_display_(/*3.2*/main("Welcome to Play")/*3.25*/ {_display_(Seq[Any](format.raw/*3.27*/("""
   """),format.raw/*4.3*/("""<h1>Welcome to Play!</h1>
-""")))}),format.raw/*5.2*/("""
+  <form action="/call" method="POST">
+  	Phone number to call format (xxx-xxx-xxxx):<br>
+  	<input type="tel" name="phone" pattern="^\d"""),format.raw/*7.47*/("""{"""),format.raw/*7.48*/("""3"""),format.raw/*7.49*/("""}"""),format.raw/*7.50*/("""-\d"""),format.raw/*7.53*/("""{"""),format.raw/*7.54*/("""3"""),format.raw/*7.55*/("""}"""),format.raw/*7.56*/("""-\d"""),format.raw/*7.59*/("""{"""),format.raw/*7.60*/("""4"""),format.raw/*7.61*/("""}"""),format.raw/*7.62*/("""$" required><br>
+	  <input type="submit" value="Make call">
+	</form>
+""")))}),format.raw/*10.2*/("""
 """))
       }
     }
@@ -51,11 +56,11 @@ Seq[Any](format.raw/*1.4*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Fri Jul 21 22:51:55 PDT 2017
+                  DATE: Sat Jul 22 17:58:33 PDT 2017
                   SOURCE: C:/Users/Earl/Desktop/projects/PhoneBuzz/app/views/index.scala.html
-                  HASH: 101fa511ddebe89cb9bf324b96e228b7b59b8d04
-                  MATRIX: 941->1|1037->3|1065->6|1096->29|1135->31|1164->34|1220->61
-                  LINES: 28->1|33->1|35->3|35->3|35->3|36->4|37->5
+                  HASH: 6337a78dc8d62b676a264839cbfd9ad01a9d55c6
+                  MATRIX: 941->1|1037->3|1065->6|1096->29|1135->31|1164->34|1352->195|1380->196|1408->197|1436->198|1466->201|1494->202|1522->203|1550->204|1580->207|1608->208|1636->209|1664->210|1764->280
+                  LINES: 28->1|33->1|35->3|35->3|35->3|36->4|39->7|39->7|39->7|39->7|39->7|39->7|39->7|39->7|39->7|39->7|39->7|39->7|42->10
                   -- GENERATED --
               */
           
