@@ -37,9 +37,11 @@ Seq[Any](format.raw/*1.4*/("""
   <form action="/call" method="POST">
   	Please enter a 10-digit phone number:<br>
   	<input type="tel" name="phone" pattern="^\d"""),format.raw/*7.47*/("""{"""),format.raw/*7.48*/("""10"""),format.raw/*7.50*/("""}"""),format.raw/*7.51*/("""$" required><br>
+  	Number of seconds delay:<br>
+  	<input type="number" name="seconds"><br>
 	  <input type="submit" value="Make call">
 	</form>
-""")))}),format.raw/*10.2*/("""
+""")))}),format.raw/*12.2*/("""
 """))
       }
     }
@@ -56,11 +58,11 @@ Seq[Any](format.raw/*1.4*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Sat Jul 22 19:23:27 PDT 2017
+                  DATE: Sat Jul 22 20:28:17 PDT 2017
                   SOURCE: C:/Users/Earl/Desktop/projects/PhoneBuzz/app/views/index.scala.html
-                  HASH: f941aeaf0cb0108fefbf921299453b064dfdb3af
-                  MATRIX: 941->1|1037->3|1065->6|1096->29|1135->31|1164->34|1346->189|1374->190|1403->192|1431->193|1531->263
-                  LINES: 28->1|33->1|35->3|35->3|35->3|36->4|39->7|39->7|39->7|39->7|42->10
+                  HASH: 3cb983773b42ed4fa39f7ddd43a69738bb3cd753
+                  MATRIX: 941->1|1037->3|1065->6|1096->29|1135->31|1164->34|1346->189|1374->190|1403->192|1431->193|1607->339
+                  LINES: 28->1|33->1|35->3|35->3|35->3|36->4|39->7|39->7|39->7|39->7|44->12
                   -- GENERATED --
               */
           
