@@ -18,12 +18,14 @@ public class TwilioController extends Controller {
 	private final String ACCOUNT_SID;
 	private final String AUTH_TOKEN;
 	private final String FROM_NUMBER;	
+	private final String URL;	
 
 	@Inject
 	public TwilioController(Configuration configuration) {
 		this.ACCOUNT_SID = configuration.getString("accountSID");
 		this.AUTH_TOKEN = configuration.getString("authToken");
 		this.FROM_NUMBER = configuration.getString("fromNumber");
+		this.APP_URL = configuration.getString("url");
 	}
 
 	public Result play() {
@@ -73,7 +75,7 @@ public class TwilioController extends Controller {
 
     PhoneNumber to = new PhoneNumber(toNumber);
     PhoneNumber from = new PhoneNumber(FROM_NUMBER);
-    URI uri = URI.create("https://earl-phone-buzz.herokuapp.com/play");
+    URI uri = URI.create(APP_URL);
 
     Call call = Call.creator(to, from, uri).create(client);
     return ok("Success!");
