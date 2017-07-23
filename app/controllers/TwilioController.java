@@ -15,6 +15,17 @@ import com.twilio.twiml.TwiMLException;
 
 public class TwilioController extends Controller {
 
+	private final String ACCOUNT_SID;
+	private final String AUTH_TOKEN;
+	private final String FROM_NUMBER;	
+
+	@Inject
+	public TwilioController(Configuration configuration) {
+		this.ACCOUNT_SID = configuration.getString("accountSID");
+		this.AUTH_TOKEN = configuration.getString("authToken");
+		this.FROM_NUMBER = configuration.getString("fromNumber");
+	}
+
 	public Result play() {
 		Say message = new Say.Builder("Hello player, input a number then press pound to play PhoneBuzz")
 			.voice(Say.Voice.WOMAN).build();
