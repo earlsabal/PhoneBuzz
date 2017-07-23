@@ -77,14 +77,14 @@ public class TwilioController extends Controller {
 		TwilioRestClient client = new TwilioRestClient.Builder(ACCOUNT_SID, AUTH_TOKEN).build();
 		String toNumber = request().body().asFormUrlEncoded().get("phone")[0];
 		String seconds = request().body().asFormUrlEncoded().get("seconds")[0];
-		int secondsDelayed;
+		long secondsDelayed;
 
 		// Checks if input is only 10-digits
 		if (toNumber.length() != 10) { return ok("Not a 10-digit number"); }
 
 		// Checks if input is only numbers
 		try {
-			int number = Integer.parseInt(toNumber);
+			long number = Integer.parseInt(toNumber);
 		} catch (Exception numberException) {
 			return ok("Invalid phone number input");
 		}
