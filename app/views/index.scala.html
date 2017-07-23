@@ -3,8 +3,8 @@
 @main("Welcome to Play") {
   <h1>Welcome to Play!</h1>
   <form action="/call" method="POST">
-  	Phone number to call format (xxx-xxx-xxxx):<br>
-  	<input type="tel" name="phone" pattern="^\d{3}-\d{3}-\d{4}$" required><br>
+  	Please enter a 10-digit phone number:<br>
+  	<input type="tel" name="phone" pattern="^\d{10}$" required><br>
 	  <input type="submit" value="Make call">
 	</form>
 }
