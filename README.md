@@ -16,6 +16,10 @@ Afterward run `playGenerateSecret`
     
 This will be your `APP_TOKEN` config for when you deploy.
 
+to get your `JDBC_DATABASE_URL` run
+
+    heroku run echo \$JDBC_DATABASE_URL
+
 You will also need your Twilio credentials
 
 - ACCOUNT_SID 
