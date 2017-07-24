@@ -2,45 +2,14 @@
 [0m[[0mdebug[0m] [0m[naha] Initial source changes: [0m
 [0m[[0mdebug[0m] [0m[naha] 	removed:Set()[0m
 [0m[[0mdebug[0m] [0m[naha] 	added: Set()[0m
-[0m[[0mdebug[0m] [0m[naha] 	modified: Set(C:\Users\Earl\Desktop\projects\PhoneBuzz\app\models\PhoneBuzzRound.java, C:\Users\Earl\Desktop\projects\PhoneBuzz\app\controllers\TwilioController.java)[0m
+[0m[[0mdebug[0m] [0m[naha] 	modified: Set()[0m
 [0m[[0mdebug[0m] [0m[naha] Invalidated products: Set()[0m
 [0m[[0mdebug[0m] [0m[naha] External API changes: API Changes: Set()[0m
 [0m[[0mdebug[0m] [0m[naha] Modified binary dependencies: Set()[0m
-[0m[[0mdebug[0m] [0m[naha] Initial directly invalidated sources: Set(C:\Users\Earl\Desktop\projects\PhoneBuzz\app\models\PhoneBuzzRound.java, C:\Users\Earl\Desktop\projects\PhoneBuzz\app\controllers\TwilioController.java)[0m
+[0m[[0mdebug[0m] [0m[naha] Initial directly invalidated sources: Set()[0m
 [0m[[0mdebug[0m] [0m[naha] [0m
 [0m[[0mdebug[0m] [0m[naha] Sources indirectly invalidated by:[0m
 [0m[[0mdebug[0m] [0m[naha] 	product: Set()[0m
 [0m[[0mdebug[0m] [0m[naha] 	binary dep: Set()[0m
 [0m[[0mdebug[0m] [0m[naha] 	external source: Set()[0m
-[0m[[0mdebug[0m] [0mAll initially invalidated sources: Set(C:\Users\Earl\Desktop\projects\PhoneBuzz\app\models\PhoneBuzzRound.java, C:\Users\Earl\Desktop\projects\PhoneBuzz\app\controllers\TwilioController.java)[0m
-[0m[[0mdebug[0m] [0m[naha] Initial set of included nodes: Set(C:\Users\Earl\Desktop\projects\PhoneBuzz\app\models\PhoneBuzzRound.java, C:\Users\Earl\Desktop\projects\PhoneBuzz\app\controllers\TwilioController.java)[0m
-[0m[[0minfo[0m] [0mCompiling 2 Java sources to C:\Users\Earl\Desktop\projects\PhoneBuzz\target\scala-2.12\classes...[0m
-[0m[[0minfo[0m] [0mNote: C:\Users\Earl\Desktop\projects\PhoneBuzz\app\controllers\TwilioController.java uses or overrides a deprecated API.[0m
-[0m[[0minfo[0m] [0mNote: Recompile with -Xlint:deprecation for details.[0m
-[0m[[0mdebug[0m] [0mJava compilation took 2.019070205 s[0m
-[0m[[0mdebug[0m] [0mJava analysis took 0.42943027 s[0m
-[0m[[0mdebug[0m] [0mJava compile + analysis took 2.483717834 s[0m
-[0m[[0mdebug[0m] [0m[naha] Invalidating C:\Users\Earl\Desktop\projects\PhoneBuzz\app\models\PhoneBuzzRound.java...[0m
-[0m[[0mdebug[0m] [0m[naha] Invalidating (transitively) by inheritance from C:\Users\Earl\Desktop\projects\PhoneBuzz\app\models\PhoneBuzzRound.java...[0m
-[0m[[0mdebug[0m] [0m[naha] Initial set of included nodes: Set(C:\Users\Earl\Desktop\projects\PhoneBuzz\app\models\PhoneBuzzRound.java)[0m
-[0m[[0mdebug[0m] [0m[naha] Invalidated by transitive inheritance dependency: Set(C:\Users\Earl\Desktop\projects\PhoneBuzz\app\models\PhoneBuzzRound.java)[0m
-[0m[[0mdebug[0m] [0m[naha] The C:\Users\Earl\Desktop\projects\PhoneBuzz\app\models\PhoneBuzzRound.java source file has the following regular definitions changed:[0m
-[0m[[0mdebug[0m] [0m[naha] 	addPropertyChangeListener, _ebean_setFieldIntercept, removePropertyChangeListener, setId, PhoneBuzzRound, _ebean_getPropertyName, _ebean_props, _ebean_getPropertyNames, _ebean_setEmbeddedLoaded, _ebean_getIntercept, _ebean_getField, _ebean_isEmbeddedNewOrDirty, _ebean_getMarker, id, inputNumber, _ebean_newInstance, secondsDelayed, getId, _ebean_setField, _ebean_intercept, _ebean_getFieldIntercept.[0m
-[0m[[0mdebug[0m] [0m[naha] All member reference dependencies will be considered within this context.[0m
-[0m[[0mdebug[0m] [0m[naha] Name hashing optimization doesn't apply to non-Scala dependency: C:\Users\Earl\Desktop\projects\PhoneBuzz\app\models\PhoneBuzzRound.java[0m
-[0m[[0mdebug[0m] [0m[naha] Name hashing optimization doesn't apply to non-Scala dependency: C:\Users\Earl\Desktop\projects\PhoneBuzz\app\controllers\TwilioController.java[0m
-[0m[[0mdebug[0m] [0m[naha] Invalidating C:\Users\Earl\Desktop\projects\PhoneBuzz\app\controllers\TwilioController.java...[0m
-[0m[[0mdebug[0m] [0m[naha] Invalidating (transitively) by inheritance from C:\Users\Earl\Desktop\projects\PhoneBuzz\app\controllers\TwilioController.java...[0m
-[0m[[0mdebug[0m] [0m[naha] Initial set of included nodes: Set(C:\Users\Earl\Desktop\projects\PhoneBuzz\app\controllers\TwilioController.java)[0m
-[0m[[0mdebug[0m] [0m[naha] Invalidated by transitive inheritance dependency: Set(C:\Users\Earl\Desktop\projects\PhoneBuzz\app\controllers\TwilioController.java)[0m
-[0m[[0mdebug[0m] [0m[naha] The C:\Users\Earl\Desktop\projects\PhoneBuzz\app\controllers\TwilioController.java source file has the following regular definitions changed:[0m
-[0m[[0mdebug[0m] [0m[naha] 	ZERO_TIME, saveRound, storeValues.[0m
-[0m[[0mdebug[0m] [0m[naha] All member reference dependencies will be considered within this context.[0m
-[0m[[0mdebug[0m] [0m[naha] Name hashing optimization doesn't apply to non-Scala dependency: C:\Users\Earl\Desktop\projects\PhoneBuzz\app\controllers\TwilioController.java[0m
-[0m[[0mdebug[0m] [0m[naha] None of the modified names appears in C:\Users\Earl\Desktop\projects\PhoneBuzz\target\scala-2.12\routes\main\router\Routes.scala. This dependency is not being considered for invalidation.[0m
-[0m[[0mdebug[0m] [0m[naha] New invalidations:[0m
-[0m[[0mdebug[0m] [0m[naha] 	Set()[0m
-[0m[[0mdebug[0m] [0m[naha] Initial set of included nodes: Set()[0m
-[0m[[0mdebug[0m] [0m[naha] Previously invalidated, but (transitively) depend on new invalidations:[0m
-[0m[[0mdebug[0m] [0m[naha] 	Set()[0m
-[0m[[0mdebug[0m] [0m[naha] All newly invalidated sources after taking into account (previously) recompiled sources:Set()[0m
+[0m[[0mdebug[0m] [0mAll initially invalidated sources: Set()[0m
