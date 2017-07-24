@@ -59,6 +59,7 @@ public class TwilioController extends Controller {
 	}
 
 	public Result fizzBuzz() {
+
 		final Map<String, String[]> params = request().body().asFormUrlEncoded();
 		String numberEntered = params.get("Digits")[0];
 		
@@ -67,73 +68,52 @@ public class TwilioController extends Controller {
 
 		String response = phoneBuzzResponse(numberToPlay);
 		return ok(response);
+
 	}
 
 	public Result call() {
-		TwilioRestClient client = new TwilioRestClient.Builder(ACCOUNT_SID, AUTH_TOKEN).build();
-		String toNumber = request().body().asFormUrlEncoded().get("phone")[0];
-		String seconds = request().body().asFormUrlEncoded().get("seconds")[0];
-		long secondsDelayed;
 
-		// Checks if input is only 10-digits
-		if (toNumber.length() != 10) { return ok("Not a 10-digit number"); }
+		String phoneNumber = request().body().asFormUrlEncoded().get("phone")[0];
+		String secondsDelayed = request().body().asFormUrlEncoded().get("seconds")[0];
 
-		// Checks if input is only numbers
-		try {
-			long number = Long.parseLong(toNumber);
-		} catch (Exception numberException) {
-			return ok("Invalid phone number input");
-		}
+		int status = validCallRequestChecker(phoneNumber, secondsDelayed);
+		if (status == 0) { status = makePhoneCall(phoneNumber); }
 
-		// Checks if the delayed seconds is a valid input
-		try {
-			secondsDelayed = Integer.parseInt(seconds);
-		} catch (Exception secondsException) {
-			return ok("Invalid seconds input");
-		}
+	  return ok(errorResponse(status));
 
-		// Checks if phone delay gets interrupted
-    try {
-    	TimeUnit.SECONDS.sleep(secondsDelayed);
-    } catch (InterruptedException e) {
-    	return ok("Phone call delay got interrupted");
-    }
-
-    PhoneNumber to = new PhoneNumber(toNumber);
-    PhoneNumber from = new PhoneNumber(FROM_NUMBER);
-    URI uri = URI.create(APP_URL);
-
-    try {
-	  	Call call = Call.creator(to, from, uri).create(client);
-    } catch (Exception callException) {
-    	callException.printStackTrace();
-    	return ok("Invalid URI or Invalid caller ID, add phone number in your Twilio Verified Caller IDs");
-    }
-	  return ok("Success!");
 	}
 
-// HELPER METHODS ---------------------------------------
+// HELPER METHODS -------------------------------------------------------------
 
 	// RETURNS -1 for invalid entry, -2 if number is outside range(1-1000)
 	// ELSE converted number
 	public int validPhoneBuzzEntry(String numberEntered){
-		int numberStatus = numberConverter(numberEntered);
+		int numberStatus = stringToIntConverter(numberEntered);
 		if (numberStatus == 0 || numberStatus > 1000) {
 			numberStatus = -2;
 		}
 		return numberStatus;
 	}
 
-	public int numberConverter(String enteredNumber) {
-		try { 
-			int convertedNumber = Integer.parseInt(enteredNumber); 
-			return convertedNumber;
-		} catch (Exception exception) { 
-			return -1; 
-		}
+	public int validCallRequestChecker(String phone, String seconds) {
+
+		long secondsDelayed = stringToLongConverter(seconds);
+
+		// Checks if input is only 10-digits
+		if (phone.length() != 10) { return -3; }
+		// Checks if input is only numbers
+		if (stringToLongConverter(phone) == -1) { return -4; }
+		// Checks if the delayed seconds is a valid input
+		if (secondsDelayed == -1) { return -5; }
+		// Checks if phone delay gets interrupted
+    if (delayCall(secondsDelayed) == -1) { return -6; }
+    return 0;
+
 	}
 
+	// Generates fizz buzz response from 1 to entered number
 	public String phoneBuzzResponse(int max) {
+
 		String response = "";
 		String phrase = "";
 		for (int i = 1; i <= max; i++) {
@@ -145,18 +125,76 @@ public class TwilioController extends Controller {
 		}
 		response += "thank you for playing PhoneBuzz";
 		return response;
+
 	}
 
+	// Converts String to Integer, returns -1 if String cannot be converted
+	public int stringToIntConverter(String enteredNumber) {
+
+		try { 
+			int convertedNumber = Integer.parseInt(enteredNumber); 
+			return convertedNumber;
+		} catch (Exception exception) { 
+			return -1; 
+		}
+
+	}
+
+	public long stringToLongConverter(String enteredNumber) {
+
+		long number = 0;
+		try {
+			number = Long.parseLong(enteredNumber);
+		} catch (Exception numberException) {
+			return -1;
+		}
+		return number;
+
+	}
+
+	public int makePhoneCall(String phoneNumber) {
+
+		TwilioRestClient client = new TwilioRestClient.Builder(ACCOUNT_SID, AUTH_TOKEN).build();
+		PhoneNumber to = new PhoneNumber(phoneNumber);
+    PhoneNumber from = new PhoneNumber(FROM_NUMBER);
+    URI uri = URI.create(APP_URL);
+
+    try {
+	  	Call call = Call.creator(to, from, uri).create(client);
+    } catch (Exception callException) {
+    	callException.printStackTrace();
+    	return -1;
+    }
+    return 0;
+
+	}
+
+	public int delayCall(long secondsDelayed) {
+
+		try {
+    	TimeUnit.SECONDS.sleep(secondsDelayed);
+    } catch (InterruptedException e) {
+    	return -1;
+    }
+    return 0;
+
+	}
+
+	// Error messages
 	public String errorResponse(int number) {
-		switch(number) {  
-    case -1: return "Sorry, please input a valid number";  
-    case -2: return "Please enter a number between 1 and 1000";  
-    case -3: return "Not a 10-digit number";
-		case -4: return "Invalid phone number input";
-		case -5: return "Invalid seconds input";
-		case -6: return "Phone call delay got interrupted";
-		case -7: return "Invalid URI or Invalid caller ID, add phone number in your Twilio Verified Caller IDs"; 
+
+		switch (number) {  
+			case  0: return "Success";
+	    case -1: return "Sorry, please input a valid number";  
+	    case -2: return "Please enter a number between 1 and 1000";  
+	    case -3: return "Not a 10-digit number";
+			case -4: return "Invalid phone number input";
+			case -5: return "Invalid seconds input";
+			case -6: return "Phone call delay got interrupted";
+			case -7: return "Invalid URI or Invalid caller ID, add phone number in your Twilio Verified Caller IDs"; 
     default: return "Something went wrong";  
     }  
+
 	}
+
 }
