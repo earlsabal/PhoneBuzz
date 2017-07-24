@@ -41,7 +41,6 @@ public class TwilioController extends Controller {
 	public static final int NO_ERROR = 0;
 	public static final int ERROR = -1;
 	public static final int TEN_DIGIT_NUMBER = 10;
-	public static final int ZERO_TIME = 0;
 
 	// Config Variables
 	private final String ACCOUNT_SID;
@@ -91,19 +90,18 @@ public class TwilioController extends Controller {
 		if (numberToPlay == 0 || numberToPlay > 1000) { return ok("Please enter a number between 1 and 1000"); }
 
 		String response = phoneBuzzResponse(numberToPlay);
+		saveRound(numberEntered);
 		return ok(response);
 
 	}
 
-	public Result callPlayer() {
-
+	public Result call() {
 		ScheduledExecutorService delayer = Executors.newSingleThreadScheduledExecutor();
 		String phoneNumber = request().body().asFormUrlEncoded().get("phone")[CONTENT];
 		String secondsDelayed = request().body().asFormUrlEncoded().get("seconds")[CONTENT];
-		String status = "";
+		String status = "now calling";
 
 		status = validateCallRequest(phoneNumber, secondsDelayed);
-
 		Callable<Result> delayedCall = new Callable<Result>() {
 			@Override
 			public Result call() {
@@ -114,27 +112,14 @@ public class TwilioController extends Controller {
 
 		if (status.equals("Valid Call")) { 
 			long delayedSeconds = stringToLongConverter(secondsDelayed); 
+			storeValues(phoneNumber, secondsDelayed);
 			delayer.schedule(delayedCall, delayedSeconds, TimeUnit.SECONDS);
-			return ok("Will call " + phoneNumber + " in " + secondsDelayed + " seconds!!");
 		}
 
-	  return ok(status);
-
+	  return ok("Will call " + phoneNumber + " in " + secondsDelayed + " seconds!!");
 	}
 
 // HELPER METHODS -------------------------------------------------------------
-
-	public String validateCallRequest(String phone, String seconds) {
-
-		long secondsDelayed = stringToLongConverter(seconds);
-
-		if (phone.length() != TEN_DIGIT_NUMBER) { return "Not a 10-digit number"; }
-		if (stringToLongConverter(phone) == ERROR) { return "Invalid phone number input"; }
-		if (secondsDelayed == ERROR) { return "Invalid seconds input"; }
-		if (secondsDelayed < ZERO_TIME) { return "Please insert a postive number"; }
-    return "Valid Call";
-
-	}
 
 	// Generates fizz buzz response from 1 to entered number
 	public String phoneBuzzResponse(int max) {
@@ -151,6 +136,34 @@ public class TwilioController extends Controller {
 		response += "thank you for playing PhoneBuzz";
 		return response;
 
+	}
+
+	public String validateCallRequest(String phone, String seconds) {
+
+		long secondsDelayed = stringToLongConverter(seconds);
+
+		if (phone.length() != TEN_DIGIT_NUMBER) { return "Not a 10-digit number"; }
+		if (stringToLongConverter(phone) == ERROR) { return "Invalid phone number input"; }
+		if (secondsDelayed == ERROR) { return "Invalid seconds input"; }
+    return "Valid Call";
+
+	}
+
+	public void storeValues(String phoneNumber, String delayedSeconds) {
+		session("phoneNumber", phoneNumber);
+		session("delayedSeconds", delayedSeconds);
+	}
+
+	public void saveRound(String phoneNumber) {
+		if (session("phoneNumber") != null && session("delayedSeconds") != null) {
+			List<PhoneBuzzRound> rounds = new ArrayList<PhoneBuzzRound>();
+			PhoneBuzzRound round = new PhoneBuzzRound();
+			round.phoneNumber = phoneNumber;
+			round.secondsDelayed = stringToLongConverter(session("delayedSeconds"));
+			round.inputNumber = stringToLongConverter(session("phoneNumber"));
+			rounds.add(round);
+			Ebean.save(rounds);
+		}
 	}
 
 	// Converts String to Integer, returns -1 if String cannot be converted
@@ -187,11 +200,8 @@ public class TwilioController extends Controller {
     	System.out.println(APP_URL);
 	  	Call call = Call.creator(to, from, uri).create(client);
     } catch (Exception callException) {
-    	String errorMessage = "Invalid URI or Invalid caller ID, add phone number in your Twilio Verified Caller IDs";
-    	System.out.println(errorMessage);
-    	return errorMessage;
+    	return "Invalid URI or Invalid caller ID, add phone number in your Twilio Verified Caller IDs";
     }
-
     return "Success";
 
 	}
