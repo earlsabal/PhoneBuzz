@@ -24,3 +24,5 @@ You will also need your Twilio credentials
 - APP_URL (linkToApp.com/play)
 
 Once deployed or ran locally, a user can view the home page and enter a phone number and set an amount of time for the call to be delayed.
+
+Be sure that the numbers entered are verified caller IDs on you Twilio account or that phone number may not receive a call.
