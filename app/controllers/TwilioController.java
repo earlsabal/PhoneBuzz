@@ -1,12 +1,15 @@
 package controllers;
+
 import play.mvc.*;
-import java.util.Map;
 import play.Configuration;
+
+import java.util.Map;
+import java.util.concurrent.TimeUnit;
+
 import javax.inject.Inject;
-import java.lang.Exception;
 import java.net.URI;
 
-import java.util.concurrent.TimeUnit;
+import java.lang.Exception;
 import java.lang.InterruptedException;
 
 import com.twilio.http.TwilioRestClient;
@@ -26,50 +29,43 @@ public class TwilioController extends Controller {
 
 	@Inject
 	public TwilioController(Configuration configuration) {
+
 		this.ACCOUNT_SID = configuration.getString("accountSID");
 		this.AUTH_TOKEN = configuration.getString("authToken");
 		this.FROM_NUMBER = configuration.getString("fromNumber");
 		this.APP_URL = configuration.getString("url");
+
 	}
 
 	public Result play() {
-		Say message = new Say.Builder("Hello player, input a number then press pound to play PhoneBuzz")
-			.voice(Say.Voice.WOMAN).build();
 
-		Gather playRound = new Gather.Builder().action("/fizzbuzz").say(message).build();
+		String greeting = "Hello player, input a number between 1 and 1000 then press pound to play PhoneBuzz";
+		Say message = new Say.Builder(greeting)
+													.voice(Say.Voice.WOMAN).build();
+
+		Gather playRound = new Gather.Builder()
+													.action("/fizzbuzz")
+													.say(message).build();
 		
 		try { 
-			VoiceResponse response = new VoiceResponse.Builder().gather(playRound).build();
+			VoiceResponse response = new VoiceResponse.Builder()
+													.gather(playRound).build();
 			return ok(response.toXml()).as("text/xml");
-		}
-		catch (TwiMLException exception) { 
+		} catch (TwiMLException exception) { 
 			exception.printStackTrace();
 			return ok("Something went wrong");
 		}	
+
 	}
 
 	public Result fizzBuzz() {
-		final Map<String, String[]> values = request().body().asFormUrlEncoded();
-		String number = values.get("Digits")[0];
-		int num = 0;
+		final Map<String, String[]> params = request().body().asFormUrlEncoded();
+		String numberEntered = params.get("Digits")[0];
+		
+		int numberToPlay = validPhoneBuzzEntry(numberEntered);
+		if (numberToPlay < 1) { return ok(errorResponse(numberToPlay)); }
 
-		//Checks a valid number
-		try { num = Integer.parseInt(number); }
-		catch (Exception e) { return ok("Sorry, please input a valid number"); }
-
-		//Checks for a reasonable number
-		if (num > 1000 || num < 1) { return ok("Please enter a number between 1 and 1000"); }
-
-		String response = "";
-		String phrase = "";
-		for (int i = 1; i <= num; i++) {
-			phrase = "";
-			if (i % 3 == 0) { phrase += " Fizz"; }
-			if (i % 5 == 0) { phrase += " Buzz"; }
-			if (phrase.equals("")) { phrase = " " + String.valueOf(i); }
-			response += phrase;
-			if (i != num) { response += ","; }
-		}
+		String response = phoneBuzzResponse(numberToPlay);
 		return ok(response);
 	}
 
@@ -116,4 +112,51 @@ public class TwilioController extends Controller {
 	  return ok("Success!");
 	}
 
+// HELPER METHODS ---------------------------------------
+
+	// RETURNS -1 for invalid entry, -2 if number is outside range(1-1000)
+	// ELSE converted number
+	public int validPhoneBuzzEntry(String numberEntered){
+		int numberStatus = numberConverter(numberEntered);
+		if (numberStatus == 0 || numberStatus > 1000) {
+			numberStatus = -2;
+		}
+		return numberStatus;
+	}
+
+	public int numberConverter(String enteredNumber) {
+		try { 
+			int convertedNumber = Integer.parseInt(enteredNumber); 
+			return convertedNumber;
+		} catch (Exception exception) { 
+			return -1; 
+		}
+	}
+
+	public String phoneBuzzResponse(int max) {
+		String response = "";
+		String phrase = "";
+		for (int i = 1; i <= max; i++) {
+			phrase = "";
+			if (i % 3 == 0) { phrase += " Fizz"; }
+			if (i % 5 == 0) { phrase += " Buzz"; }
+			if (phrase.equals("")) { phrase = " " + String.valueOf(i); }
+			response += phrase + ",";
+		}
+		response += "thank you for playing PhoneBuzz";
+		return response;
+	}
+
+	public String errorResponse(int number) {
+		switch(number) {  
+    case -1: return "Sorry, please input a valid number";  
+    case -2: return "Please enter a number between 1 and 1000";  
+    case -3: return "Not a 10-digit number";
+		case -4: return "Invalid phone number input";
+		case -5: return "Invalid seconds input";
+		case -6: return "Phone call delay got interrupted";
+		case -7: return "Invalid URI or Invalid caller ID, add phone number in your Twilio Verified Caller IDs"; 
+    default: return "Something went wrong";  
+    }  
+	}
 }
