@@ -114,9 +114,10 @@ public class TwilioController extends Controller {
 			long delayedSeconds = stringToLongConverter(secondsDelayed); 
 			storeValues(phoneNumber, secondsDelayed);
 			delayer.schedule(delayedCall, delayedSeconds, TimeUnit.SECONDS);
+			return ok("Will call " + phoneNumber + " in " + secondsDelayed + " seconds!!");
 		}
 
-	  return ok("Will call " + phoneNumber + " in " + secondsDelayed + " seconds!!");
+	  return ok(status);
 	}
 
 // HELPER METHODS -------------------------------------------------------------
