@@ -95,7 +95,7 @@ public class TwilioController extends Controller {
 
 	}
 
-	public Result call() {
+	public Result callPlayer() {
 		ScheduledExecutorService delayer = Executors.newSingleThreadScheduledExecutor();
 		String phoneNumber = request().body().asFormUrlEncoded().get("phone")[CONTENT];
 		String secondsDelayed = request().body().asFormUrlEncoded().get("seconds")[CONTENT];
