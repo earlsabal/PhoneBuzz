@@ -35,6 +35,7 @@ public class TwilioController extends Controller {
 	public static final int NO_ERROR = 0;
 	public static final int ERROR = -1;
 	public static final int TEN_DIGIT_NUMBER = 10;
+	public static final int ZERO_TIME = 0;
 
 	// Config Variables
 	private final String ACCOUNT_SID;
@@ -93,7 +94,7 @@ public class TwilioController extends Controller {
 		ScheduledExecutorService delayer = Executors.newSingleThreadScheduledExecutor();
 		String phoneNumber = request().body().asFormUrlEncoded().get("phone")[CONTENT];
 		String secondsDelayed = request().body().asFormUrlEncoded().get("seconds")[CONTENT];
-		String status = "now calling";
+		String status = "";
 
 		status = validateCallRequest(phoneNumber, secondsDelayed);
 
@@ -108,9 +109,10 @@ public class TwilioController extends Controller {
 		if (status.equals("Valid Call")) { 
 			long delayedSeconds = stringToLongConverter(secondsDelayed); 
 			delayer.schedule(delayedCall, delayedSeconds, TimeUnit.SECONDS);
+			return ok("Will call " + phoneNumber + " in " + secondsDelayed + " seconds!!");
 		}
 
-	  return ok("Will call " + phoneNumber + " in " + secondsDelayed + " seconds!!");
+	  return ok(status);
 
 	}
 
@@ -123,6 +125,7 @@ public class TwilioController extends Controller {
 		if (phone.length() != TEN_DIGIT_NUMBER) { return "Not a 10-digit number"; }
 		if (stringToLongConverter(phone) == ERROR) { return "Invalid phone number input"; }
 		if (secondsDelayed == ERROR) { return "Invalid seconds input"; }
+		if (secondsDelayed < ZERO_TIME) { return "Please insert a postive number" }
     return "Valid Call";
 
 	}
