@@ -10,6 +10,7 @@ scalaVersion := "2.12.2"
 libraryDependencies += guice
 
 libraryDependencies += javaJdbc
+libraryDependencies += evolutions
 libraryDependencies += "com.h2database" % "h2" % "1.4.194"
 libraryDependencies += "org.postgresql" % "postgresql" % "9.4-1206-jdbc42"
 
