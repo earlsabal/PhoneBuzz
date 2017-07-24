@@ -163,7 +163,7 @@ public class TwilioController extends Controller {
 	  	Call call = Call.creator(to, from, uri).create(client);
     } catch (Exception callException) {
     	callException.printStackTrace();
-    	return -1;
+    	return -7;
     }
     return 0;
 
@@ -192,7 +192,7 @@ public class TwilioController extends Controller {
 			case -5: return "Invalid seconds input";
 			case -6: return "Phone call delay got interrupted";
 			case -7: return "Invalid URI or Invalid caller ID, add phone number in your Twilio Verified Caller IDs"; 
-    default: return "Something went wrong";  
+    	default: return "Something went wrong";  
     }  
 
 	}
