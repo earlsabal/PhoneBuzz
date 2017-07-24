@@ -1,5 +1,6 @@
 package models;
 
+import io.ebean.*;
 import play.data.validation.Constraints;
 import javax.persistence.Entity;
 
@@ -12,9 +13,9 @@ public class PhoneBuzzRound extends BaseModel {
   public String phoneNumber;
 
   @Constraints.Required
-  public int secondsDelayed;
+  public long secondsDelayed;
 
   @Constraints.Required
-  public int inputNumber;
+  public long inputNumber;
   
 }
