@@ -5,7 +5,7 @@ POST		/play												controllers.TwilioController.play
 POST		/fizzbuzz										controllers.TwilioController.fizzBuzz
 
 + nocsrf
-POST 		/call 											controllers.TwilioController.call
+POST 		/call 											controllers.TwilioController.callPlayer
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)

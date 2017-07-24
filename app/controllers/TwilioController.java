@@ -88,13 +88,15 @@ public class TwilioController extends Controller {
 
 	}
 
-	public Result call() {
+	public Result callPlayer() {
+
 		ScheduledExecutorService delayer = Executors.newSingleThreadScheduledExecutor();
 		String phoneNumber = request().body().asFormUrlEncoded().get("phone")[CONTENT];
 		String secondsDelayed = request().body().asFormUrlEncoded().get("seconds")[CONTENT];
 		String status = "now calling";
 
 		status = validateCallRequest(phoneNumber, secondsDelayed);
+
 		Callable<Result> delayedCall = new Callable<Result>() {
 			@Override
 			public Result call() {
@@ -102,11 +104,14 @@ public class TwilioController extends Controller {
 				return ok(response);
 			}
 		};
+
 		if (status.equals("Valid Call")) { 
 			long delayedSeconds = stringToLongConverter(secondsDelayed); 
 			delayer.schedule(delayedCall, delayedSeconds, TimeUnit.SECONDS);
 		}
+
 	  return ok("Will call " + phoneNumber + " in " + secondsDelayed + " seconds!!");
+
 	}
 
 // HELPER METHODS -------------------------------------------------------------
@@ -175,6 +180,7 @@ public class TwilioController extends Controller {
     } catch (Exception callException) {
     	return "Invalid URI or Invalid caller ID, add phone number in your Twilio Verified Caller IDs";
     }
+    
     return "Success";
 
 	}
