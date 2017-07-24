@@ -87,7 +87,7 @@ public class TwilioController extends Controller {
 		int numberToPlay = stringToIntConverter(numberEntered);
 
 		if (numberToPlay == ERROR) { return ok("Sorry, please input a valid number"); }
-		if (numberToPlay == 0 || numberToPlay > 1000) { return ok("Please enter a number between 1 and 1000"); }
+		if (numberToPlay < MIN_NUMBER || numberToPlay > MAX_NUMBER) { return ok("Please enter a number between 1 and 1000"); }
 
 		String response = phoneBuzzResponse(numberToPlay);
 		saveRound(numberEntered);
