@@ -41,6 +41,7 @@ public class TwilioController extends Controller {
 	public static final int NO_ERROR = 0;
 	public static final int ERROR = -1;
 	public static final int TEN_DIGIT_NUMBER = 10;
+	public static final int ZERO_TIME = 0;
 
 	// Config Variables
 	private final String ACCOUNT_SID;
@@ -146,6 +147,7 @@ public class TwilioController extends Controller {
 		if (phone.length() != TEN_DIGIT_NUMBER) { return "Not a 10-digit number"; }
 		if (stringToLongConverter(phone) == ERROR) { return "Invalid phone number input"; }
 		if (secondsDelayed == ERROR) { return "Invalid seconds input"; }
+		if (secondsDelayed < ZERO_TIME) { return "Please input a positive number" }
     return "Valid Call";
 
 	}
