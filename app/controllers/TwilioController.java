@@ -2,9 +2,13 @@ package controllers;
 
 import play.mvc.*;
 import play.Configuration;
-
 import java.util.Map;
+
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.Callable;
 
 import javax.inject.Inject;
 import java.net.URI;
@@ -76,8 +80,8 @@ public class TwilioController extends Controller {
 		String numberEntered = params.get("Digits")[CONTENT];
 		int numberToPlay = stringToIntConverter(numberEntered);
 
-		if (numberEntered.length() != TEN_DIGIT_NUMBER) { return ok("Please enter a number between 1 and 1000"); }
 		if (numberToPlay == ERROR) { return ok("Sorry, please input a valid number"); }
+		if (numberToPlay == 0 || numberToPlay > 1000) { return ok("Please enter a number between 1 and 1000"); }
 
 		String response = phoneBuzzResponse(numberToPlay);
 		return ok(response);
@@ -85,16 +89,24 @@ public class TwilioController extends Controller {
 	}
 
 	public Result call() {
-
+		ScheduledExecutorService delayer = Executors.newSingleThreadScheduledExecutor();
 		String phoneNumber = request().body().asFormUrlEncoded().get("phone")[CONTENT];
 		String secondsDelayed = request().body().asFormUrlEncoded().get("seconds")[CONTENT];
-		String status = "";
+		String status = "now calling";
 
 		status = validateCallRequest(phoneNumber, secondsDelayed);
-		if (status.equals("Valid Call")) { status = makePhoneCall(phoneNumber); }
-
-	  return ok(status);
-
+		Callable<Result> delayedCall = new Callable<Result>() {
+			@Override
+			public Result call() {
+				final String response = makePhoneCall(phoneNumber);
+				return ok(response);
+			}
+		};
+		if (status.equals("Valid Call")) { 
+			long delayedSeconds = stringToLongConverter(secondsDelayed); 
+			delayer.schedule(delayedCall, delayedSeconds, TimeUnit.SECONDS);
+		}
+	  return ok("Will call " + phoneNumber + " in " + secondsDelayed + " seconds!!");
 	}
 
 // HELPER METHODS -------------------------------------------------------------
@@ -103,10 +115,9 @@ public class TwilioController extends Controller {
 
 		long secondsDelayed = stringToLongConverter(seconds);
 
-		if (phone.length() != 10) { return "Not a 10-digit number"; }
+		if (phone.length() != TEN_DIGIT_NUMBER) { return "Not a 10-digit number"; }
 		if (stringToLongConverter(phone) == ERROR) { return "Invalid phone number input"; }
 		if (secondsDelayed == ERROR) { return "Invalid seconds input"; }
-    if (delayCall(secondsDelayed) == ERROR) { return "Phone call delay got interrupted"; }
     return "Valid Call";
 
 	}
@@ -165,17 +176,6 @@ public class TwilioController extends Controller {
     	return "Invalid URI or Invalid caller ID, add phone number in your Twilio Verified Caller IDs";
     }
     return "Success";
-
-	}
-
-	public int delayCall(long secondsDelayed) {
-
-		try {
-    	TimeUnit.SECONDS.sleep(secondsDelayed);
-    } catch (InterruptedException e) {
-    	return ERROR;
-    }
-    return NO_ERROR;
 
 	}
 

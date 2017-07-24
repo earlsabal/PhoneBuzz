@@ -17,15 +17,15 @@
 [0m[[0minfo[0m] [0mCompiling 1 Java source to C:\Users\Earl\Desktop\projects\PhoneBuzz\target\scala-2.12\classes...[0m
 [0m[[0minfo[0m] [0mNote: C:\Users\Earl\Desktop\projects\PhoneBuzz\app\controllers\TwilioController.java uses or overrides a deprecated API.[0m
 [0m[[0minfo[0m] [0mNote: Recompile with -Xlint:deprecation for details.[0m
-[0m[[0mdebug[0m] [0mJava compilation took 1.56367555 s[0m
-[0m[[0mdebug[0m] [0mJava analysis took 0.344944145 s[0m
-[0m[[0mdebug[0m] [0mJava compile + analysis took 1.938116116 s[0m
+[0m[[0mdebug[0m] [0mJava compilation took 1.988379203 s[0m
+[0m[[0mdebug[0m] [0mJava analysis took 0.394552695 s[0m
+[0m[[0mdebug[0m] [0mJava compile + analysis took 2.415894286 s[0m
 [0m[[0mdebug[0m] [0m[naha] Invalidating C:\Users\Earl\Desktop\projects\PhoneBuzz\app\controllers\TwilioController.java...[0m
 [0m[[0mdebug[0m] [0m[naha] Invalidating (transitively) by inheritance from C:\Users\Earl\Desktop\projects\PhoneBuzz\app\controllers\TwilioController.java...[0m
 [0m[[0mdebug[0m] [0m[naha] Initial set of included nodes: Set(C:\Users\Earl\Desktop\projects\PhoneBuzz\app\controllers\TwilioController.java)[0m
 [0m[[0mdebug[0m] [0m[naha] Invalidated by transitive inheritance dependency: Set(C:\Users\Earl\Desktop\projects\PhoneBuzz\app\controllers\TwilioController.java)[0m
 [0m[[0mdebug[0m] [0m[naha] The C:\Users\Earl\Desktop\projects\PhoneBuzz\app\controllers\TwilioController.java source file has the following regular definitions changed:[0m
-[0m[[0mdebug[0m] [0m[naha] 	validCallRequestChecker, delayCall, numberConverter, makePhoneCall, stringToIntConverter, stringToLongConverter.[0m
+[0m[[0mdebug[0m] [0m[naha] 	validCallRequestChecker, CONTENT, delayCall, MIN_NUMBER, ERROR, NO_ERROR, makePhoneCall, validPhoneBuzzEntry, MAX_NUMBER, TEN_DIGIT_NUMBER, validateCallRequest, errorResponse.[0m
 [0m[[0mdebug[0m] [0m[naha] All member reference dependencies will be considered within this context.[0m
 [0m[[0mdebug[0m] [0m[naha] Name hashing optimization doesn't apply to non-Scala dependency: C:\Users\Earl\Desktop\projects\PhoneBuzz\app\controllers\TwilioController.java[0m
 [0m[[0mdebug[0m] [0m[naha] None of the modified names appears in C:\Users\Earl\Desktop\projects\PhoneBuzz\target\scala-2.12\routes\main\router\Routes.scala. This dependency is not being considered for invalidation.[0m
