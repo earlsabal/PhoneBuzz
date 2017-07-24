@@ -88,11 +88,13 @@ public class TwilioController extends Controller {
 	// RETURNS -1 for invalid entry, -2 if number is outside range(1-1000)
 	// ELSE converted number
 	public int validPhoneBuzzEntry(String numberEntered){
+
 		int numberStatus = stringToIntConverter(numberEntered);
 		if (numberStatus == 0 || numberStatus > 1000) {
 			numberStatus = -2;
 		}
 		return numberStatus;
+		
 	}
 
 	public int validCallRequestChecker(String phone, String seconds) {
