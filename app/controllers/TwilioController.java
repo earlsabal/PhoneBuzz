@@ -125,7 +125,7 @@ public class TwilioController extends Controller {
 		if (phone.length() != TEN_DIGIT_NUMBER) { return "Not a 10-digit number"; }
 		if (stringToLongConverter(phone) == ERROR) { return "Invalid phone number input"; }
 		if (secondsDelayed == ERROR) { return "Invalid seconds input"; }
-		if (secondsDelayed < ZERO_TIME) { return "Please insert a postive number" }
+		if (secondsDelayed < ZERO_TIME) { return "Please insert a postive number"; }
     return "Valid Call";
 
 	}
