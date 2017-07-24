@@ -178,9 +178,11 @@ public class TwilioController extends Controller {
     	System.out.println(APP_URL);
 	  	Call call = Call.creator(to, from, uri).create(client);
     } catch (Exception callException) {
-    	return "Invalid URI or Invalid caller ID, add phone number in your Twilio Verified Caller IDs";
+    	String errorMessage = "Invalid URI or Invalid caller ID, add phone number in your Twilio Verified Caller IDs";
+    	System.out.println(errorMessage);
+    	return errorMessage;
     }
-    
+
     return "Success";
 
 	}

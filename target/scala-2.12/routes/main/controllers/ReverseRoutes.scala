@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:C:/Users/Earl/Desktop/projects/PhoneBuzz/conf/routes
-// @DATE:Sat Jul 22 14:29:54 PDT 2017
+// @DATE:Mon Jul 24 06:09:12 PDT 2017
 
 import play.api.mvc.Call
 
@@ -49,6 +49,12 @@ package controllers {
     }
 
   
+    // @LINE:8
+    def callPlayer(): Call = {
+      
+      Call("POST", _prefix + { _defaultPrefix } + "call")
+    }
+  
     // @LINE:4
     def play(): Call = {
       
@@ -59,12 +65,6 @@ package controllers {
     def fizzBuzz(): Call = {
       
       Call("POST", _prefix + { _defaultPrefix } + "fizzbuzz")
-    }
-  
-    // @LINE:8
-    def call(): Call = {
-      
-      Call("POST", _prefix + { _defaultPrefix } + "call")
     }
   
   }

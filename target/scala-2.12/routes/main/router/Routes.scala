@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:C:/Users/Earl/Desktop/projects/PhoneBuzz/conf/routes
-// @DATE:Sat Jul 22 14:29:54 PDT 2017
+// @DATE:Mon Jul 24 06:09:12 PDT 2017
 
 package router
 
@@ -47,7 +47,7 @@ class Routes(
     ("""GET""", this.prefix, """controllers.HomeController.index"""),
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """play""", """controllers.TwilioController.play"""),
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """fizzbuzz""", """controllers.TwilioController.fizzBuzz"""),
-    ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """call""", """controllers.TwilioController.call"""),
+    ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """call""", """controllers.TwilioController.callPlayer"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """assets/""" + "$" + """file<.+>""", """controllers.Assets.versioned(path:String = "/public", file:Asset)"""),
     Nil
   ).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
@@ -111,15 +111,15 @@ class Routes(
   )
 
   // @LINE:8
-  private[this] lazy val controllers_TwilioController_call3_route = Route("POST",
+  private[this] lazy val controllers_TwilioController_callPlayer3_route = Route("POST",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("call")))
   )
-  private[this] lazy val controllers_TwilioController_call3_invoker = createInvoker(
-    TwilioController_0.call,
+  private[this] lazy val controllers_TwilioController_callPlayer3_invoker = createInvoker(
+    TwilioController_0.callPlayer,
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.TwilioController",
-      "call",
+      "callPlayer",
       Nil,
       "POST",
       this.prefix + """call""",
@@ -168,9 +168,9 @@ class Routes(
       }
   
     // @LINE:8
-    case controllers_TwilioController_call3_route(params) =>
+    case controllers_TwilioController_callPlayer3_route(params) =>
       call { 
-        controllers_TwilioController_call3_invoker.call(TwilioController_0.call)
+        controllers_TwilioController_callPlayer3_invoker.call(TwilioController_0.callPlayer)
       }
   
     // @LINE:11

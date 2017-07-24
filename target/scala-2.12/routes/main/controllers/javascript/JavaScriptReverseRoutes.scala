@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:C:/Users/Earl/Desktop/projects/PhoneBuzz/conf/routes
-// @DATE:Sat Jul 22 14:29:54 PDT 2017
+// @DATE:Mon Jul 24 06:09:12 PDT 2017
 
 import play.api.routing.JavaScriptReverseRoute
 
@@ -60,6 +60,16 @@ package controllers.javascript {
     }
 
   
+    // @LINE:8
+    def callPlayer: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.TwilioController.callPlayer",
+      """
+        function() {
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "call"})
+        }
+      """
+    )
+  
     // @LINE:4
     def play: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.TwilioController.play",
@@ -76,16 +86,6 @@ package controllers.javascript {
       """
         function() {
           return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "fizzbuzz"})
-        }
-      """
-    )
-  
-    // @LINE:8
-    def call: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.TwilioController.call",
-      """
-        function() {
-          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "call"})
         }
       """
     )
