@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity(name = "PhoneBuzzRound")
+@NamedQuery(name="PhoneBuzzRound.findAll", query="SELECT u PhoneBuzzRound User u")
 public class PhoneBuzzRound {
 
 	@Id
