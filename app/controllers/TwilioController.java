@@ -65,7 +65,7 @@ public class TwilioController extends Controller {
 	public Result play() {
 
 		String url = "/fizzbuzz";
-		System.out.print(request().body().asFormUrlEncoded());
+		// System.out.print(request().body().asFormUrlEncoded());
 
 		// If you changed the MAX_NUMBER, change the greeting as well
 		String greeting = "Hello player, input a number between 1 and 1000 then press pound to play PhoneBuzz";
@@ -101,7 +101,7 @@ public class TwilioController extends Controller {
 
 		String response = phoneBuzzResponse(numberToPlay);
 
-		// saveRound(phone, seconds, numberToPlay);
+		saveRound(phone, 4, numberToPlay);
 		return ok(response);
 
 	}
