@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:C:/Users/Earl/Desktop/projects/PhoneBuzz/conf/routes
-// @DATE:Mon Jul 24 06:09:12 PDT 2017
+// @DATE:Tue Jul 25 07:26:29 PDT 2017
 
 import play.api.mvc.Call
 

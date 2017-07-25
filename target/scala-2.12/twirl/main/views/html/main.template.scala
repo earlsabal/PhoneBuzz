@@ -68,7 +68,7 @@ Seq[Any](format.raw/*7.32*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Fri Jul 21 22:51:55 PDT 2017
+                  DATE: Tue Jul 25 07:26:30 PDT 2017
                   SOURCE: C:/Users/Earl/Desktop/projects/PhoneBuzz/app/views/main.scala.html
                   HASH: 863271db3bc90c425db2fb95e8fb0ff62c83f9b4
                   MATRIX: 1206->260|1331->290|1359->292|1439->397|1475->406|1510->414|1536->419|1625->481|1640->487|1703->528|1791->589|1806->595|1867->634|1929->758|1966->768|1994->775|2031->785|2072->799|2087->805|2148->845

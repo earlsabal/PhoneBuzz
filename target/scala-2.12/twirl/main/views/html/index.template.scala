@@ -60,7 +60,7 @@ Seq[Any](format.raw/*1.49*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Tue Jul 25 05:28:47 PDT 2017
+                  DATE: Tue Jul 25 07:26:30 PDT 2017
                   SOURCE: C:/Users/Earl/Desktop/projects/PhoneBuzz/app/views/index.scala.html
                   HASH: 78454a82d522553691e1dc3d662726c2b21507d9
                   MATRIX: 969->1|1111->48|1139->51|1170->74|1209->76|1238->79|1427->241|1455->242|1484->244|1512->245|1690->397|1718->404|1755->411

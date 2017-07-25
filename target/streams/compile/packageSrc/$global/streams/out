@@ -1,0 +1,27 @@
+[0m[[0minfo[0m] [0mPackaging C:\Users\Earl\Desktop\projects\PhoneBuzz\target\scala-2.12\phonebuzz_2.12-1.0-SNAPSHOT-sources.jar ...[0m
+[0m[[0mdebug[0m] [0mInput file mappings:[0m
+[0m[[0mdebug[0m] [0m	models\PhoneBuzzRound.java[0m
+[0m[[0mdebug[0m] [0m	  C:\Users\Earl\Desktop\projects\PhoneBuzz\app\models\PhoneBuzzRound.java[0m
+[0m[[0mdebug[0m] [0m	evolutions[0m
+[0m[[0mdebug[0m] [0m	  C:\Users\Earl\Desktop\projects\PhoneBuzz\conf\evolutions[0m
+[0m[[0mdebug[0m] [0m	evolutions\default\1.sql[0m
+[0m[[0mdebug[0m] [0m	  C:\Users\Earl\Desktop\projects\PhoneBuzz\conf\evolutions\default\1.sql[0m
+[0m[[0mdebug[0m] [0m	logback.xml[0m
+[0m[[0mdebug[0m] [0m	  C:\Users\Earl\Desktop\projects\PhoneBuzz\conf\logback.xml[0m
+[0m[[0mdebug[0m] [0m	controllers\TwilioController.java[0m
+[0m[[0mdebug[0m] [0m	  C:\Users\Earl\Desktop\projects\PhoneBuzz\app\controllers\TwilioController.java[0m
+[0m[[0mdebug[0m] [0m	application.conf[0m
+[0m[[0mdebug[0m] [0m	  C:\Users\Earl\Desktop\projects\PhoneBuzz\conf\application.conf[0m
+[0m[[0mdebug[0m] [0m	services\PhoneBuzzRoundService.java[0m
+[0m[[0mdebug[0m] [0m	  C:\Users\Earl\Desktop\projects\PhoneBuzz\app\services\PhoneBuzzRoundService.java[0m
+[0m[[0mdebug[0m] [0m	routes[0m
+[0m[[0mdebug[0m] [0m	  C:\Users\Earl\Desktop\projects\PhoneBuzz\conf\routes[0m
+[0m[[0mdebug[0m] [0m	controllers\HomeController.java[0m
+[0m[[0mdebug[0m] [0m	  C:\Users\Earl\Desktop\projects\PhoneBuzz\app\controllers\HomeController.java[0m
+[0m[[0mdebug[0m] [0m	META-INF[0m
+[0m[[0mdebug[0m] [0m	  C:\Users\Earl\Desktop\projects\PhoneBuzz\conf\META-INF[0m
+[0m[[0mdebug[0m] [0m	evolutions\default[0m
+[0m[[0mdebug[0m] [0m	  C:\Users\Earl\Desktop\projects\PhoneBuzz\conf\evolutions\default[0m
+[0m[[0mdebug[0m] [0m	META-INF\persistence.xml[0m
+[0m[[0mdebug[0m] [0m	  C:\Users\Earl\Desktop\projects\PhoneBuzz\conf\META-INF\persistence.xml[0m
+[0m[[0minfo[0m] [0mDone packaging.[0m
