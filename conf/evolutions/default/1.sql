@@ -3,11 +3,11 @@
 # --- !Ups
 
 create table PhoneBuzzRound (
-  id                        bigint not null,
-  phoneNumber               varchar(255) not null,
-  secondsDelayed						bigint not null,
-  inputNumber						bigint not null
-;
+  id                    INTEGER PRIMARY KEY,
+  phoneNumber           VARCHAR(255) NOT NULL,
+  secondsDelayed				BIGINT NOT NULL,
+  inputNumber						BIGINT NOT NULL
+);
 
 # --- !Downs
 
