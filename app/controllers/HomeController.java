@@ -11,8 +11,19 @@ import java.util.List;
 
 public class HomeController extends Controller {
 
+	@Inject
+  private PhoneBuzzRoundService phoneBuzzRoundService;
+
 	public Result index() {
-		return ok(views.html.index.render());
+		
+    List<PhoneBuzzRound> rounds = phoneBuzzRoundService.findAll();
+    String message = "Here are all the rounds played";
+    if (rounds.size() == 0) { 
+      message = "No rounds have been played";
+    }
+
+    return ok(views.html.index.render(rounds, message));
+    
 	}
 
 }
