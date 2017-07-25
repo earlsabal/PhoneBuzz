@@ -65,7 +65,7 @@ public class TwilioController extends Controller {
 	public Result play() {
 
 		String url = "/fizzbuzz";
-		System.out.print(request());
+		System.out.print(request().path());
 		String seconds = null;
 		if (seconds != null) { url += "?seconds=" + seconds; }
 
