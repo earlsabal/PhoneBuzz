@@ -1,21 +1,22 @@
 package models;
 
-import io.ebean.*;
-import play.data.validation.Constraints;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
-@Entity 
-public class PhoneBuzzRound extends BaseModel {
+@Entity(name = "PhoneBuzzRound")
+public class PhoneBuzzRound {
 
-  private static final long serialVersionUID = 1L;
+	@Id
+	private long id;
 
-  @Constraints.Required
-  public String phoneNumber;
+	@Column
+  private String phoneNumber;
 
-  @Constraints.Required
-  public long secondsDelayed;
+  @Column
+  private long secondsDelayed;
 
-  @Constraints.Required
-  public long inputNumber;
-  
+  @Column
+  private long inputNumber;
 }
