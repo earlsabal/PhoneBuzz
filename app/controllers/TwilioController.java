@@ -64,11 +64,11 @@ public class TwilioController extends Controller {
 
 	public Result play() {
 
-		final Map<String, String[]> params = request().body().asFormUrlEncoded();
-		System.out.print("play: " + params);
 		String url = "/fizzbuzz";
-		// String seconds = params.get("seconds")[0];
-		// if (seconds != null) { url += "?seconds=" + seconds; }
+		System.out.print(request());
+		String seconds = null;
+		if (seconds != null) { url += "?seconds=" + seconds; }
+
 		// If you changed the MAX_NUMBER, change the greeting as well
 		String greeting = "Hello player, input a number between 1 and 1000 then press pound to play PhoneBuzz";
 		Say message = new Say.Builder(greeting)
@@ -92,6 +92,8 @@ public class TwilioController extends Controller {
 	public Result fizzBuzz() {
 
 		final Map<String, String[]> params = request().body().asFormUrlEncoded();
+		// String seconds = request().getParameter("seconds");
+		String phone = params.get("Caller")[CONTENT];
 
 		System.out.print(params);
 
@@ -103,7 +105,7 @@ public class TwilioController extends Controller {
 
 		String response = phoneBuzzResponse(numberToPlay);
 
-		saveRound(numberToPlay);
+		// saveRound(phone, seconds, numberToPlay);
 		return ok(response);
 
 	}
@@ -203,14 +205,14 @@ public class TwilioController extends Controller {
 
 	}
 
-	public void saveRound(long input) {
-		// String phoneNumber = session("phoneNumber");
-		// long secondsDelayed = stringToLongConverter(session("delayedSeconds"));
+	public void saveRound(String phone, String delayedSeconds, long input) {
 
-		// PhoneBuzzRound round = new PhoneBuzzRound(phoneNumber, 
-		// 																					secondsDelayed,
-		// 																					input);
-		// phoneBuzzRoundService.save(round);
+		long seconds = stringToLongConverter(delayedSeconds);
+
+		PhoneBuzzRound round = new PhoneBuzzRound(phone, 
+																							seconds,
+																							input);
+		phoneBuzzRoundService.save(round);
 
 	}
 
