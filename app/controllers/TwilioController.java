@@ -101,7 +101,7 @@ public class TwilioController extends Controller {
 
 		String response = phoneBuzzResponse(numberToPlay);
 
-		saveRound(phone, 4, numberToPlay);
+		saveRound(phone, "4", numberToPlay);
 		return ok(response);
 
 	}
