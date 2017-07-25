@@ -205,6 +205,10 @@ public class TwilioController extends Controller {
 
 		long seconds = stringToLongConverter(delayedSeconds);
 
+		System.out.println("phone");
+		System.out.println("seconds");
+		System.out.println("input");
+
 		PhoneBuzzRound round = new PhoneBuzzRound(phone, 
 																							seconds,
 																							input);
