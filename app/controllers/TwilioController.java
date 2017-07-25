@@ -113,14 +113,13 @@ public class TwilioController extends Controller {
 		Callable<Result> delayedCall = new Callable<Result>() {
 			@Override
 			public Result call() {
-				final String response = makePhoneCall(phoneNumber);
+				final String response = makePhoneCall(phoneNumber, secondsDelayed);
 				return ok(response);
 			}
 		};
 
 		if (status.equals("Valid Call")) { 
 			long delayedSeconds = stringToLongConverter(secondsDelayed); 
-			storeValues(phoneNumber, secondsDelayed);
 			delayer.schedule(delayedCall, delayedSeconds, TimeUnit.SECONDS);
 			return ok("Will call " + phoneNumber + " in " + secondsDelayed + " seconds!!");
 		}
@@ -159,11 +158,6 @@ public class TwilioController extends Controller {
 
 	}
 
-	public void storeValues(String phoneNumber, String delayedSeconds) {
-		session("phoneNumber", phoneNumber);
-		session("delayedSeconds", delayedSeconds);
-	}
-
 	// Converts String to Integer, returns -1 if String cannot be converted
 	public int stringToIntConverter(String enteredNumber) {
 
@@ -187,12 +181,12 @@ public class TwilioController extends Controller {
 
 	}
 
-	public String makePhoneCall(String phoneNumber) {
+	public String makePhoneCall(String phoneNumber, String seconds) {
 
 		TwilioRestClient client = new TwilioRestClient.Builder(ACCOUNT_SID, AUTH_TOKEN).build();
 		PhoneNumber to = new PhoneNumber(phoneNumber);
     PhoneNumber from = new PhoneNumber(FROM_NUMBER);
-    URI uri = URI.create(APP_URL);
+    URI uri = URI.create(APP_URL + "?seconds=" + seconds);
 
     try {
     	System.out.println(APP_URL);
@@ -205,13 +199,13 @@ public class TwilioController extends Controller {
 	}
 
 	public void saveRound(long input) {
-		String phoneNumber = session("phoneNumber");
-		long secondsDelayed = stringToLongConverter(session("delayedSeconds"));
+		// String phoneNumber = session("phoneNumber");
+		// long secondsDelayed = stringToLongConverter(session("delayedSeconds"));
 
-		PhoneBuzzRound round = new PhoneBuzzRound(phoneNumber, 
-																							secondsDelayed,
-																							input);
-		phoneBuzzRoundService.save(round);
+		// PhoneBuzzRound round = new PhoneBuzzRound(phoneNumber, 
+		// 																					secondsDelayed,
+		// 																					input);
+		// phoneBuzzRoundService.save(round);
 
 	}
 
