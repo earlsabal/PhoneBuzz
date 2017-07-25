@@ -64,13 +64,17 @@ public class TwilioController extends Controller {
 
 	public Result play() {
 
+		final Map<String, String[]> params = request().body().asFormUrlEncoded();
+		String url = "/fizzbuzz";
+		String seconds = params.get("seconds")[0];
+		if (seconds != null) { url += "?seconds=" + seconds; }
 		// If you changed the MAX_NUMBER, change the greeting as well
 		String greeting = "Hello player, input a number between 1 and 1000 then press pound to play PhoneBuzz";
 		Say message = new Say.Builder(greeting)
 													.voice(Say.Voice.WOMAN).build();
 
 		Gather playRound = new Gather.Builder()
-													.action("/fizzbuzz")
+													.action(url)
 													.say(message).build();
 		
 		try { 
