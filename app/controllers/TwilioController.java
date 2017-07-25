@@ -87,6 +87,9 @@ public class TwilioController extends Controller {
 	public Result fizzBuzz() {
 
 		final Map<String, String[]> params = request().body().asFormUrlEncoded();
+
+		System.out.print(params);
+
 		String numberEntered = params.get("Digits")[CONTENT];
 		long numberToPlay = stringToLongConverter(numberEntered);
 
@@ -159,8 +162,6 @@ public class TwilioController extends Controller {
 	public void storeValues(String phoneNumber, String delayedSeconds) {
 		session("phoneNumber", phoneNumber);
 		session("delayedSeconds", delayedSeconds);
-		System.out.println(session("phoneNumber"));
-		System.out.println(session("delayedSeconds"));
 	}
 
 	// Converts String to Integer, returns -1 if String cannot be converted
@@ -206,10 +207,6 @@ public class TwilioController extends Controller {
 	public void saveRound(long input) {
 		String phoneNumber = session("phoneNumber");
 		long secondsDelayed = stringToLongConverter(session("delayedSeconds"));
-
-		System.out.println(phoneNumber);
-		System.out.println(secondsDelayed);
-		System.out.println(input);
 
 		PhoneBuzzRound round = new PhoneBuzzRound(phoneNumber, 
 																							secondsDelayed,
