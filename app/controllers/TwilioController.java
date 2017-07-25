@@ -1,5 +1,6 @@
 package controllers;
 
+import models.PhoneBuzzRound;
 import play.mvc.*;
 import play.Configuration;
 import java.util.Map;
@@ -7,8 +8,6 @@ import java.util.Map;
 import java.util.ArrayList;
 import java.util.List;
 
-import io.ebean.*;
-import models.PhoneBuzzRound;
 
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
@@ -91,7 +90,7 @@ public class TwilioController extends Controller {
 		if (numberToPlay < MIN_NUMBER || numberToPlay > MAX_NUMBER) { return ok("Please enter a number between 1 and 1000"); }
 
 		String response = phoneBuzzResponse(numberToPlay);
-		saveRound(numberEntered);
+		// saveRound(numberEntered);
 		return ok(response);
 
 	}
@@ -158,15 +157,15 @@ public class TwilioController extends Controller {
 	}
 
 	public void saveRound(String phoneNumber) {
-		if (session("phoneNumber") != null && session("delayedSeconds") != null) {
-			List<PhoneBuzzRound> rounds = new ArrayList<PhoneBuzzRound>();
-			PhoneBuzzRound round = new PhoneBuzzRound();
-			round.phoneNumber = phoneNumber;
-			round.secondsDelayed = stringToLongConverter(session("delayedSeconds"));
-			round.inputNumber = stringToLongConverter(session("phoneNumber"));
-			rounds.add(round);
-			Ebean.save(rounds);
-		}
+		// if (session("phoneNumber") != null && session("delayedSeconds") != null) {
+		// 	List<PhoneBuzzRound> rounds = new ArrayList<PhoneBuzzRound>();
+		// 	PhoneBuzzRound round = new PhoneBuzzRound();
+		// 	round.phoneNumber = phoneNumber;
+		// 	round.secondsDelayed = stringToLongConverter(session("delayedSeconds"));
+		// 	round.inputNumber = stringToLongConverter(session("phoneNumber"));
+		// 	rounds.add(round);
+		// 	Ebean.save(rounds);
+		// }
 	}
 
 	// Converts String to Integer, returns -1 if String cannot be converted
