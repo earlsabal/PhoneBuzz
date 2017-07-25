@@ -4,7 +4,7 @@
 		module="phonebuzz-build"
 		revision="0.1-SNAPSHOT"
 		status="integration"
-		publication="20170723164629"
+		publication="20170725031428"
 		e:sbtVersion="0.13" e:scalaVersion="2.10"
 	>
 		<description>
@@ -37,7 +37,6 @@
 		<dependency org="org.scala-lang" name="scala-library" rev="2.10.6" conf="scala-tool->default,optional(default);provided->default(compile)"/>
 		<dependency org="org.scala-sbt" name="sbt" rev="0.13.15" conf="provided->default(compile)"/>
 		<dependency org="com.typesafe.play" name="sbt-plugin" rev="2.6.2" conf="compile->default(compile)" e:sbtVersion="0.13" e:scalaVersion="2.10"/>
-		<dependency org="com.typesafe.sbt" name="sbt-play-ebean" rev="4.0.2" conf="compile->default(compile)" e:sbtVersion="0.13" e:scalaVersion="2.10"/>
 		<dependency org="org.foundweekends.giter8" name="sbt-giter8-scaffold" rev="0.8.0" conf="compile->default(compile)" e:sbtVersion="0.13" e:scalaVersion="2.10"/>
 	</dependencies>
 </ivy-module>
