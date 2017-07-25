@@ -65,9 +65,7 @@ public class TwilioController extends Controller {
 	public Result play() {
 
 		String url = "/fizzbuzz";
-		System.out.print(request().path());
-		String seconds = null;
-		if (seconds != null) { url += "?seconds=" + seconds; }
+		System.out.print(request().body().asFormUrlEncoded());
 
 		// If you changed the MAX_NUMBER, change the greeting as well
 		String greeting = "Hello player, input a number between 1 and 1000 then press pound to play PhoneBuzz";
@@ -94,8 +92,6 @@ public class TwilioController extends Controller {
 		final Map<String, String[]> params = request().body().asFormUrlEncoded();
 		// String seconds = request().getParameter("seconds");
 		String phone = params.get("Caller")[CONTENT];
-
-		System.out.print(params);
 
 		String numberEntered = params.get("Digits")[CONTENT];
 		long numberToPlay = stringToLongConverter(numberEntered);
@@ -193,11 +189,11 @@ public class TwilioController extends Controller {
 		TwilioRestClient client = new TwilioRestClient.Builder(ACCOUNT_SID, AUTH_TOKEN).build();
 		PhoneNumber to = new PhoneNumber(phoneNumber);
     PhoneNumber from = new PhoneNumber(FROM_NUMBER);
-    URI uri = URI.create(APP_URL + "?seconds=" + seconds);
+    URI uri = URI.create(APP_URL);
 
     try {
     	System.out.println(APP_URL);
-	  	Call call = Call.creator(to, from, uri).create(client);
+	  	Call call = Call.creator(to, from, uri).setSendDigits(seconds+"#").create(client);
     } catch (Exception callException) {
     	return "Invalid URI or Invalid caller ID, add phone number in your Twilio Verified Caller IDs";
     }
