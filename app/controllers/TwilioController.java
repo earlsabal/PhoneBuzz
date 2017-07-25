@@ -1,14 +1,14 @@
 package controllers;
 
-import models.PhoneBuzzRound;
-import services.PhoneBuzzRoundService;
-
 import play.mvc.*;
 import play.Configuration;
 import java.util.Map;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import models.PhoneBuzzRound;
+import services.PhoneBuzzRoundService;
 
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
@@ -50,6 +50,9 @@ public class TwilioController extends Controller {
 	private final String APP_URL;	
 
 	@Inject
+  private PhoneBuzzRoundService phoneBuzzRoundService;
+
+	@Inject
 	public TwilioController(Configuration configuration) {
 
 		this.ACCOUNT_SID = configuration.getString("accountSID");
@@ -85,13 +88,14 @@ public class TwilioController extends Controller {
 
 		final Map<String, String[]> params = request().body().asFormUrlEncoded();
 		String numberEntered = params.get("Digits")[CONTENT];
-		int numberToPlay = stringToIntConverter(numberEntered);
+		long numberToPlay = stringToLongConverter(numberEntered);
 
 		if (numberToPlay == ERROR) { return ok("Sorry, please input a valid number"); }
 		if (numberToPlay < MIN_NUMBER || numberToPlay > MAX_NUMBER) { return ok("Please enter a number between 1 and 1000"); }
 
 		String response = phoneBuzzResponse(numberToPlay);
-		// saveRound(numberEntered);
+
+		saveRound(numberToPlay);
 		return ok(response);
 
 	}
@@ -124,7 +128,7 @@ public class TwilioController extends Controller {
 // HELPER METHODS -------------------------------------------------------------
 
 	// Generates fizz buzz response from 1 to entered number
-	public String phoneBuzzResponse(int max) {
+	public String phoneBuzzResponse(long max) {
 
 		String response = "";
 		String phrase = "";
@@ -155,18 +159,6 @@ public class TwilioController extends Controller {
 	public void storeValues(String phoneNumber, String delayedSeconds) {
 		session("phoneNumber", phoneNumber);
 		session("delayedSeconds", delayedSeconds);
-	}
-
-	public void saveRound(String phoneNumber) {
-		// if (session("phoneNumber") != null && session("delayedSeconds") != null) {
-		// 	List<PhoneBuzzRound> rounds = new ArrayList<PhoneBuzzRound>();
-		// 	PhoneBuzzRound round = new PhoneBuzzRound();
-		// 	round.phoneNumber = phoneNumber;
-		// 	round.secondsDelayed = stringToLongConverter(session("delayedSeconds"));
-		// 	round.inputNumber = stringToLongConverter(session("phoneNumber"));
-		// 	rounds.add(round);
-		// 	Ebean.save(rounds);
-		// }
 	}
 
 	// Converts String to Integer, returns -1 if String cannot be converted
@@ -206,6 +198,17 @@ public class TwilioController extends Controller {
     	return "Invalid URI or Invalid caller ID, add phone number in your Twilio Verified Caller IDs";
     }
     return "Success";
+
+	}
+
+	public void saveRound(long input) {
+		String phoneNumber = session("phoneNumber");
+		long secondsDelayed = stringToLongConverter(session("delayedSeconds"));
+
+		PhoneBuzzRound round = new PhoneBuzzRound(phoneNumber, 
+																							secondsDelayed,
+																							input);
+		phoneBuzzRoundService.save(round);
 
 	}
 
