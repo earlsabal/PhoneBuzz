@@ -1,15 +1,25 @@
+[0m[[0mdebug[0m] [0m[naha] Invalidating C:\Users\Earl\.ivy2\cache\io.ebean\ebean\jars\ebean-10.3.1.jar: could not find class io.ebean.Ebean on the classpath.[0m
 [0m[[0mdebug[0m] [0m[naha] [0m
 [0m[[0mdebug[0m] [0m[naha] Initial source changes: [0m
-[0m[[0mdebug[0m] [0m[naha] 	removed:Set()[0m
+[0m[[0mdebug[0m] [0m[naha] 	removed:Set(C:\Users\Earl\Desktop\projects\PhoneBuzz\app\models\BaseModel.java)[0m
 [0m[[0mdebug[0m] [0m[naha] 	added: Set()[0m
-[0m[[0mdebug[0m] [0m[naha] 	modified: Set()[0m
+[0m[[0mdebug[0m] [0m[naha] 	modified: Set(C:\Users\Earl\Desktop\projects\PhoneBuzz\app\controllers\TwilioController.java)[0m
 [0m[[0mdebug[0m] [0m[naha] Invalidated products: Set()[0m
 [0m[[0mdebug[0m] [0m[naha] External API changes: API Changes: Set()[0m
-[0m[[0mdebug[0m] [0m[naha] Modified binary dependencies: Set()[0m
-[0m[[0mdebug[0m] [0m[naha] Initial directly invalidated sources: Set()[0m
+[0m[[0mdebug[0m] [0m[naha] Modified binary dependencies: Set(C:\Users\Earl\.ivy2\cache\io.ebean\ebean\jars\ebean-10.3.1.jar)[0m
+[0m[[0mdebug[0m] [0m[naha] Initial directly invalidated sources: Set(C:\Users\Earl\Desktop\projects\PhoneBuzz\app\controllers\TwilioController.java, C:\Users\Earl\Desktop\projects\PhoneBuzz\app\models\BaseModel.java)[0m
 [0m[[0mdebug[0m] [0m[naha] [0m
 [0m[[0mdebug[0m] [0m[naha] Sources indirectly invalidated by:[0m
 [0m[[0mdebug[0m] [0m[naha] 	product: Set()[0m
-[0m[[0mdebug[0m] [0m[naha] 	binary dep: Set()[0m
+[0m[[0mdebug[0m] [0m[naha] 	binary dep: Set(C:\Users\Earl\Desktop\projects\PhoneBuzz\app\models\PhoneBuzzRound.java, C:\Users\Earl\Desktop\projects\PhoneBuzz\app\controllers\TwilioController.java, C:\Users\Earl\Desktop\projects\PhoneBuzz\app\models\BaseModel.java)[0m
 [0m[[0mdebug[0m] [0m[naha] 	external source: Set()[0m
-[0m[[0mdebug[0m] [0mAll initially invalidated sources: Set()[0m
+[0m[[0mdebug[0m] [0mAll initially invalidated sources: Set(C:\Users\Earl\Desktop\projects\PhoneBuzz\app\models\PhoneBuzzRound.java, C:\Users\Earl\Desktop\projects\PhoneBuzz\app\controllers\TwilioController.java, C:\Users\Earl\Desktop\projects\PhoneBuzz\app\models\BaseModel.java)[0m
+[0m[[0mdebug[0m] [0m[naha] Initial set of included nodes: Set(C:\Users\Earl\Desktop\projects\PhoneBuzz\app\models\PhoneBuzzRound.java, C:\Users\Earl\Desktop\projects\PhoneBuzz\app\controllers\TwilioController.java, C:\Users\Earl\Desktop\projects\PhoneBuzz\app\models\BaseModel.java)[0m
+[0m[[0minfo[0m] [0mCompiling 2 Java sources to C:\Users\Earl\Desktop\projects\PhoneBuzz\target\scala-2.12\classes...[0m
+[0m[[31merror[0m] [0mC:\Users\Earl\Desktop\projects\PhoneBuzz\app\models\PhoneBuzzRound.java:3:  error: package io.ebean does not exist[0m
+[0m[[31merror[0m] [0mimport io.ebean.*;[0m
+[0m[[31merror[0m] [0m^[0m
+[0m[[31merror[0m] [0mC:\Users\Earl\Desktop\projects\PhoneBuzz\app\models\PhoneBuzzRound.java:8:  error: cannot find symbol[0m
+[0m[[31merror[0m] [0mpublic class PhoneBuzzRound extends BaseModel {[0m
+[0m[[31merror[0m] [0m                                    ^[0m
+[0m[[31merror[0m] [0m(compile:[31mcompileIncremental[0m) javac returned nonzero exit code[0m
