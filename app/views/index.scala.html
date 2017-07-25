@@ -1,12 +1,14 @@
-@()
+@(rounds: List[PhoneBuzzRound])(message: String)
 
 @main("Welcome to Play") {
   <h1>Welcome to Play!</h1>
   <form action="/call" method="POST">
-  	Please enter a 10-digit phone number:<br>
+  	Phone number to call formatted in 10-digits:<br>
   	<input type="tel" name="phone" pattern="^\d{10}$" required><br>
   	Number of seconds delay:<br>
   	<input type="number" name="seconds"><br>
 	  <input type="submit" value="Make call">
 	</form>
+
+	<h2>@message</h2>
 }
