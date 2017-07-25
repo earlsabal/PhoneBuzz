@@ -159,6 +159,8 @@ public class TwilioController extends Controller {
 	public void storeValues(String phoneNumber, String delayedSeconds) {
 		session("phoneNumber", phoneNumber);
 		session("delayedSeconds", delayedSeconds);
+		System.out.println(session("phoneNumber"));
+		System.out.println(session("delayedSeconds"));
 	}
 
 	// Converts String to Integer, returns -1 if String cannot be converted
