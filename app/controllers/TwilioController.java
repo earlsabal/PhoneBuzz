@@ -111,7 +111,8 @@ public class TwilioController extends Controller {
 		String phoneNumber = request().body().asFormUrlEncoded().get("phone")[CONTENT];
 		String secondsDelayed = request().body().asFormUrlEncoded().get("seconds")[CONTENT];
 		String status = "now calling";
-
+		// Was trying to check is save was working
+			saveRound(phoneNumber, secondsDelayed, 7);
 		status = validateCallRequest(phoneNumber, secondsDelayed);
 		Callable<Result> delayedCall = new Callable<Result>() {
 			@Override
@@ -212,8 +213,8 @@ public class TwilioController extends Controller {
 		PhoneBuzzRound round = new PhoneBuzzRound(phone, 
 																							seconds,
 																							input);
-		// phoneBuzzRoundService.save(round);
-		round.save();
+		phoneBuzzRoundService.save(round);
+		// round.save();
 	}
 
 }
