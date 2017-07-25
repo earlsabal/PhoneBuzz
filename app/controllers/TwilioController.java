@@ -212,8 +212,8 @@ public class TwilioController extends Controller {
 		PhoneBuzzRound round = new PhoneBuzzRound(phone, 
 																							seconds,
 																							input);
-		phoneBuzzRoundService.save(round);
-
+		// phoneBuzzRoundService.save(round);
+		round.save();
 	}
 
 }

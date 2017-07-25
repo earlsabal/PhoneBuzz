@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity(name = "PhoneBuzzRound")
+@Table(name="phonebuzzrounds")
 public class PhoneBuzzRound {
 
 	@Id
