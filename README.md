@@ -2,6 +2,8 @@
 
 Java Application using Play Framework that can receive calls from a user or call a user to play fizz buzz over the phone.  Once connected, the user will be greeted and asked to enter a number within a range, the app will then respond by saying the results of fizz buzz for that number.  The user is thanked after for playing and the phone call ends.
 
+If you would like to try the application, call this number (209) 546-6331
+
 ## Setup
 
 Clone application and navigate to the project.
