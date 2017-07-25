@@ -65,7 +65,7 @@ public class TwilioController extends Controller {
 	public Result play() {
 
 		final Map<String, String[]> params = request().body().asFormUrlEncoded();
-		System.out.print("play: "params);
+		System.out.print("play: " + params);
 		String url = "/fizzbuzz";
 		// String seconds = params.get("seconds")[0];
 		// if (seconds != null) { url += "?seconds=" + seconds; }
